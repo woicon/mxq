@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="loginpage">
+    <form>
+        <view class='login-form'>
+            <view class='page-title'>请验证手机号</view>
+            <view class='input-line'>
+                <input placeholder='手机号' id="phone" name="phone" class="{{phone?'focus':''}}" placeholder-class='placeholder' bindfocus='inputFocus' bindblur="inputBlur" bindinput="checkPhone" maxlength='11' type="number"></input>
+                <view class='ico icon-phone'></view>
+            </view>
+            <view class='input-line'>
+                <input id="code" name="code" class="{{code?'focus':''}}" placeholder='验证码' placeholder-class='placeholder' bindfocus='inputFocus' bindblur="inputBlur" maxlength='4' type="number"></input>
+                <view class="getcode {{phoneDone?'':'disable'}}" 
+                bindtap="{{phoneDone?'getCode':''}}">
+                
+                <block wx:if="{{!codeStat}}">点击获取</block>
+                <block wx:else>{{endtime}}s</block>
+                </view>
+                <view class='ico icon-lock'></view>
+
+                </view>
+            <button class="button" hover-class='button-hover' hover="true">确定</button>
+            <view class='reginfo'>验证手机号即代表您已同意 <text>用户服务协议</text></view>
+        </view>
+    </form>
+</view>

@@ -1,0 +1,95 @@
+/* pages/novices/novices.wxss */
+.datepicker picker-view{
+    text-align:center;
+}
+.input{
+    font-size:32rpx;
+    padding:32rpx 40rpx;
+    border:1px solid #E6E6E6;
+    border-radius:8rpx;
+}
+.button{
+    margin-top:40rpx;
+}
+.panel{
+    background:#fff;
+}
+
+.select{
+    border:1px solid #E6E6E6;
+    border-radius:8rpx;
+      margin-bottom:30rpx;
+}
+.select picker{
+    padding:27rpx 40rpx;
+  
+}
+.picker{
+    font-size:32rpx;
+}
+.area-hot{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    padding:50rpx 0 20rpx 0;
+}
+.area{
+    width:30%;
+    text-align:center;
+    background:#fff;
+    border-radius:120rpx;
+    font-size:32rpx;
+    padding:30rpx 0;
+    margin:0 0 30rpx 0;
+    position:relative;
+}
+.area:after{
+    content:'';
+    border:1px solid #F2F2F2;
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    top:0;
+    width:200%;
+    height:200%;
+    transform:scale(.5);
+    transform-origin:0 0;
+    border-radius:120rpx;
+    box-sizing:border-box;
+}
+.area.active{
+    background:#03A699;
+    color:#fff;
+}
+.area.active:after{
+    border:none;
+}
+.step{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    top:0;
+    background:#fafafa;
+}
+.step .page-title{
+    padding:39rpx 50rpx;
+    margin:0 -50rpx;
+    background:#fff;
+}
+.step .panel{
+    padding-top:40rpx;
+}
+.step .panel .title-s{
+    padding:0 0 30rpx 0;
+    margin:0;
+}
+.hide{
+    display:none;
+}
+.info{
+    font-size:26rpx;
+    margin:46rpx 0;
+    text-align:center;
+}

@@ -1,0 +1,68 @@
+<!--pages/novices/novices.wxml-->
+<view class='step step1 {{!step[0]?"hide":""}}'>
+    <view class='mpage'>
+        <view class='page-title title-s'>请选择您孩子所在的城市</view>
+        <view class='area-hot'>
+            <view class='area {{citySel[index]?"active":""}}' wx:for="{{hotCity}}" wx:key="hotCity" id="{{index}}" bindtap='chooseCity'>
+                {{item}}
+            </view>
+        </view>
+    </view>
+    <view class='panel'>
+        <view class='mpage'>
+            <view class="page-title title-s">您孩子户籍所在的区</view>
+            <view class='select'>
+                <picker modle='selector' range="{{area}}">
+                <view class="picker">选择</view>
+                </picker>
+            </view>
+            <view class="page-title title-s">您孩子计划报考的区</view>
+            <view class='select'>
+                <picker modle='selector' range="{{area}}">
+                    <view class="picker">选择</view>
+                </picker>
+            </view>
+            <view class='info'>以上信息仅用于服务推进，平台严密保护您的隐私</view>
+            <view class='button' bindtap="nextStep" id="0">下一步</view>
+        </view>
+    </view>
+</view>
+<view class='step step2 {{!step[1]?"hide":""}}'>
+    <view class='datepicker'>
+        <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{datePicker.value}}" bindchange="bindChange">
+            <picker-view-column>
+            <view wx:for="{{datePicker.years}}" wx:key="years">{{item}}年</view>
+            </picker-view-column>
+            <picker-view-column>
+            <view wx:for="{{datePicker.months}}" wx:key="months">{{item}}月</view>
+            </picker-view-column>
+        </picker-view>
+    </view>
+    <view class='mpage'>
+        <view class='grade' bindtap='chooseGrade'>
+            <view id='min'>-</view>
+            <view>{{grade[gradeSel]}}</view>
+            <view id='add'>+</view>
+        </view>
+        <view class='input'><input placeholder='请输入您孩子目前所在的学校'></input></view>
+        <view class='info'>以上信息仅用于服务推进，平台严密保护您的隐私</view>
+        <view class='button' bindtap="nextStep"  id="1">下一步</view>
+    </view>
+</view>
+
+<view class='step step3 {{!step[2]?"hide":""}}'>
+    <view class='mpage'>
+        <view class='page-title title-s'>
+            <view>最后，为保护您的隐私</view>
+            <view>请设置展示给其他用户的昵称吧</view>
+        </view>
+        <input class='input' placeholder='请输入5-11位中英文字符，不带标点'></input>
+        <view class='button' bindtap="submit">确定</view>
+    </view>
+</view>
+
+<!-- <view class='searchpage'>
+    <view class='icon-search'></view>
+    <input placeholder='输入关键词搜索'></input>
+    <view class='button' bindtap="nextStep">确定</view>
+</view> -->
