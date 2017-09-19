@@ -4,7 +4,7 @@
     "pages/registration/registration",
     "pages/find/find",
     "pages/novices/novices",
-    "pages/Join/Join",
+    "pages/join/join",
     "pages/logs/logs"
   ],
   "window":{

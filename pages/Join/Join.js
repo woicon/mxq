@@ -1,4 +1,4 @@
-// pages/Join/Join.js
+// pages/join/join.js
 Page({
 
   /**

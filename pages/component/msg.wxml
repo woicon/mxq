@@ -1,0 +1,2 @@
+<import src="../../pages/component/component.wxml"/>
+<template is="msglayer" data="{{msg:msg}}"/>

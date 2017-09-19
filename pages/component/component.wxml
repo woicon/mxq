@@ -1,0 +1,5 @@
+<template name="msglayer">
+    <view class="abs msg" style="display:{{msg?'flex':''}}">
+        <text>{{msg}}</text>
+    </view>
+</template>

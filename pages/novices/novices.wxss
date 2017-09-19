@@ -93,3 +93,22 @@
     margin:46rpx 0;
     text-align:center;
 }
+.grade{
+    display:flex;
+    text-align:center;
+    justify-content:space-around;
+}
+.grade view{
+    padding:30rpx 40rpx;
+}
+.childsex{
+    text-align:center;
+    display:flex;
+    align-content:space-between;
+}
+.childsex view{
+    padding:36rpx 120rpx;
+    border: 2rpx solid #E6E6E6;
+    border-radius: 100rpx;
+    background:#fff;
+}

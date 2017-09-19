@@ -15,5 +15,17 @@ const formatNumber = n => {
 }
 
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  msg:function(txt){
+    let _curPageArr = getCurrentPages();
+    let _curPage = _curPageArr[_curPageArr.length-1];
+    _curPage.setData({
+        msg:txt,
+    })
+    setTimeout(function(){
+        _curPage.setData({
+            msg:'',
+        })
+    },1500)
+  }
 }

@@ -29,7 +29,7 @@
 </view>
 <view class='step step2 {{!step[1]?"hide":""}}'>
     <view class='datepicker'>
-        <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{datePicker.value}}" bindchange="bindChange">
+        <picker-view indicator-style="height: 50px;line-height:50px" style="width: 100%; height: 300px;" value="{{datePicker.value}}" bindchange="bindChange">
             <picker-view-column>
             <view wx:for="{{datePicker.years}}" wx:key="years">{{item}}年</view>
             </picker-view-column>
@@ -38,15 +38,20 @@
             </picker-view-column>
         </picker-view>
     </view>
-    <view class='mpage'>
-        <view class='grade' bindtap='chooseGrade'>
-            <view id='min'>-</view>
-            <view>{{grade[gradeSel]}}</view>
-            <view id='add'>+</view>
+    <view class='panel'>
+        <view class='mpage'>
+            <view class='grade' bindtap='chooseGrade'>
+                <view id='min'>-</view>
+                <view>{{grade[gradeSel]}}</view>
+                <view id='add'>+</view>
+            </view>
+            <view class='childsex'>
+                <view wx:for="{{sex}}" wx:key="childSex">{{item}}</view>
+            </view>
+            <view class='input'><input placeholder='请输入您孩子目前所在的学校'></input></view>
+            <view class='info'>以上信息仅用于服务推进，平台严密保护您的隐私</view>
+            <view class='button' bindtap="nextStep"  id="1">下一步</view>
         </view>
-        <view class='input'><input placeholder='请输入您孩子目前所在的学校'></input></view>
-        <view class='info'>以上信息仅用于服务推进，平台严密保护您的隐私</view>
-        <view class='button' bindtap="nextStep"  id="1">下一步</view>
     </view>
 </view>
 
