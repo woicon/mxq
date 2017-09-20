@@ -15,8 +15,9 @@ const formatNumber = n => {
 }
 
 module.exports = {
-  formatTime: formatTime,
-  msg:function(txt){
+    formatTime: formatTime,
+    //消息框
+    msg:function(txt){
     let _curPageArr = getCurrentPages();
     let _curPage = _curPageArr[_curPageArr.length-1];
     _curPage.setData({
@@ -27,5 +28,21 @@ module.exports = {
             msg:'',
         })
     },1500)
-  }
+    },
+    //去重
+    distinct: function(arr) {
+        var result = [],
+            i,
+            j,
+            len = arr.length;
+        for (i = 0; i < len; i++) {
+            for (j = i + 1; j < len; j++) {
+                if (arr[i] === arr[j]) {
+                    j = ++i;
+                }
+            }
+            result.push(arr[i]);
+        }
+        return result;
+    }
 }

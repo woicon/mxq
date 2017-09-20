@@ -89,7 +89,7 @@ Page({
                 phone: that.data.phoneNumber
             },
             success: function (res) {
-                console.log(res);
+                //console.log(res);
                 base.msg(res.data.message);
                 if(res.data.data){
                     that.setData({

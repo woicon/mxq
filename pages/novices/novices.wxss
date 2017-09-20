@@ -1,6 +1,7 @@
 /* pages/novices/novices.wxss */
 .datepicker picker-view{
     text-align:center;
+    height:380rpx;
 }
 .input{
     font-size:32rpx;
@@ -88,10 +89,12 @@
 .hide{
     display:none;
 }
+
 .info{
     font-size:26rpx;
     margin:46rpx 0;
     text-align:center;
+    color:#4c4c4c;
 }
 .grade{
     display:flex;
@@ -101,14 +104,97 @@
 .grade view{
     padding:30rpx 40rpx;
 }
+
+.grade .hide{
+    display:none;
+}
 .childsex{
     text-align:center;
     display:flex;
     align-content:space-between;
+    justify-content:space-between;
+    margin:40rpx 0;
+    flex-wrap:nowrap;
 }
+
 .childsex view{
-    padding:36rpx 120rpx;
+    padding:36rpx 0;
     border: 2rpx solid #E6E6E6;
     border-radius: 100rpx;
     background:#fff;
+    width:48%;
+}
+
+.childsex view.active{
+    background:#03A699;
+    color:#fff;
+}
+.childsex view.active{
+    border:none;
+}
+.searchpage{
+    display:none;
+    position:fixed;
+}
+.searchpage.show{
+    display:block;
+}
+.searchbar{
+    position:relative;
+}
+.searchbar .ico{
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    display:flex;
+    align-items:center;
+}
+.searchinput{
+    border-bottom:1px solid #E6E6E6;
+    font-size:32rpx;
+    padding:36rpx 50rpx 36rpx 60rpx;
+    color:#333;
+}
+.clear{
+    display:none;
+    font-size:12px;
+    position:absolute;
+    right:0;
+    top:0;
+    bottom:0;
+    align-items:center;
+    color:#7F7F7F;
+}
+.clear.show{
+    display:flex;
+}
+.schools .item{
+    padding:30rpx 0;
+}
+
+.name{
+    font-size:32rpx;
+    margin-bottom:10rpx;
+    color:#191919;
+}
+.fullname{
+    font-size:28rpx;
+    color:#4C4C4C;
+}
+picker-view-column view{
+    height:100rpx;
+    line-height:100rpx;
+    background:#F6F6F6;
+}
+picker-view-column{
+     background:#F6F6F6;
+}
+.datepicker{
+    background:#F6F6F6;
+}
+.titles{
+    font-size:30rpx;
+    margin-top:50rpx;
+    color:#4c4c4c;
 }
