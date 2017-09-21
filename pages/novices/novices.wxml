@@ -87,4 +87,10 @@
             </view>
         </view>
     </view>
-</view> 
+</view>
+
+<view></view>
+<view class='mpage'>
+    <view wx:for="{{area}}">{{item}}</view>
+    <view class='button' bindtap="submit" bindtap='subimtInfo'>确定</view>
+</view>

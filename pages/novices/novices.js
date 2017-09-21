@@ -224,28 +224,38 @@ Page({
             selectedSchool: this.data.hotSchool[e.currentTarget.id].fullName,
         })
     },
+
     chooseCity:function(e){
-        let that = this;
-        let citySel = that.data.citySel;
+        let that = this
+        let citySel = that.data.citySel
         let _sel = citySel.map((itm)=>{
             return itm = false;
         });
-        _sel[e.target.id] = true;
-        that.setData({
-            citySel:_sel,
-            info:{
-                city: that.data.hotCity[e.target.id],
-            }
-        });
-        let yourLocation = that.data.location;
+        _sel[e.target.id] = true
+        let info = that.data.info
+        let selCity = that.data.hotCity[e.target.id]
+        info.city = selCity
+        
+        let yourLocation = app.globalData.location;
         that.getCity({
             data: {
-                province: yourLocation.province,
-                city: yourLocation.city,
+                city: selCity
             },
             success:function(res){
-                console.log(res);
+                let arealist = res.data.data.cities;
+                let datas = res.data.data;
+                let area = [];
+                for (let i in arealist){
+                    area[i] = arealist[i].district
+                }
+                that.setData({
+                    area: area
+                })
             }
+        });
+        that.setData({
+            citySel: _sel,
+            info: info
         });
     },
 
@@ -289,15 +299,12 @@ Page({
     },
     onLoad: function (options) {
         let that = this;
+        
         wx.setNavigationBarTitle({
             title: '名校家长圈',
         })
         that.datePicker();
-        const hotCity = that.data.hotCity;
-        let citySel = [];
-        for (var i in hotCity){
-            citySel[i] = false;
-        }
+        
         base.msg('您当前所在位置:' + app.globalData.location.province);
         that.getCity({
             success:function(res){
@@ -306,9 +313,16 @@ Page({
                 for (var i in cityList){
                     city[i] = cityList[i].city;
                 }
+                let citys = base.distinct(city)
+                let citySel = [];
+                for (var i in citys) {
+                    citySel[i] = false;
+                }
                 that.setData({
-                    hotCity: base.distinct(city)
+                    hotCity: citys,
+                    citySel: citySel
                 })
+                
             }
         });
     },
