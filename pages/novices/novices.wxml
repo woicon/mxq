@@ -33,7 +33,7 @@
         <view class="page-title title-s">请选择您的孩子年龄</view>
     </view>
     <view class='datepicker'>
-        <picker-view indicator-style="height:50px;border-top:1px solid #03A699;border-bottom:1px solid #03A699" style="width: 100%;" class="datepicker" value="{{datePicker.value}}" bindchange="bindChange">
+        <picker-view mask-class="pickmask" indicator-style="height:50px;border-top:1px solid #03A699;border-bottom:1px solid #03A699;color:#000" style="width: 100%;" class="datepicker" value="{{datePicker.value}}" bindchange="dateChange">
             <picker-view-column>
                 <view wx:for="{{datePicker.years}}" wx:key="years">{{item}}年</view>
             </picker-view-column>
@@ -46,7 +46,7 @@
         <view class='mpage'>
             <view class='grade' bindtap='chooseGrade'>
                 <view id='min' class='ico-min {{minbtn?"hide":""}}'></view>
-                <view>{{grade[gradeSel]}}</view>
+                    <view>{{grade[gradeSel]}}</view>
                 <view id='add' class='ico-add {{addbtn?"hide":""}}'></view>
             </view>
             <view class='childsex'>
@@ -65,7 +65,7 @@
             <view>最后，为保护您的隐私</view>
             <view>请设置展示给其他用户的昵称吧</view>
         </view>
-        <input class='input' placeholder='请输入5-11位中英文字符，不带标点'></input>
+        <input class='input' placeholder='请输入5-11位中英文字符，不带标点' bindinput='inputName' value="{{info.nickname}}"></input>
         <view class='button' bindtap="submit" bindtap='subimtInfo'>确定</view>
     </view>
 </view>

@@ -1,8 +1,5 @@
 /* pages/novices/novices.wxss */
-.datepicker picker-view{
-    text-align:center;
-    height:380rpx;
-}
+
 .input{
     font-size:32rpx;
     padding:32rpx 40rpx;
@@ -86,6 +83,9 @@
     padding:0 0 30rpx 0;
     margin:0;
 }
+.step3{
+    background:#fff;
+}
 .hide{
     display:none;
 }
@@ -96,18 +96,27 @@
     text-align:center;
     color:#4c4c4c;
 }
+
+.pickmask{
+    background-image: -webkit-linear-gradient(90deg,rgba(255, 255, 255, .5) 0%,rgba(255, 255, 255, .5) 100%);
+    display:block;
+    background-repeat:space;
+}
+
 .grade{
     display:flex;
     text-align:center;
     justify-content:space-around;
 }
+
 .grade view{
-    padding:30rpx 40rpx;
+    padding:10rpx 40rpx;
 }
 
 .grade .hide{
     display:none;
 }
+
 .childsex{
     text-align:center;
     display:flex;
@@ -136,12 +145,15 @@
     display:none;
     position:fixed;
 }
+
 .searchpage.show{
     display:block;
 }
+
 .searchbar{
     position:relative;
 }
+
 .searchbar .ico{
     position:absolute;
     left:0;
@@ -150,12 +162,14 @@
     display:flex;
     align-items:center;
 }
+
 .searchinput{
     border-bottom:1px solid #E6E6E6;
     font-size:32rpx;
     padding:36rpx 50rpx 36rpx 60rpx;
     color:#333;
 }
+
 .clear{
     display:none;
     font-size:12px;
@@ -166,9 +180,11 @@
     align-items:center;
     color:#7F7F7F;
 }
+
 .clear.show{
     display:flex;
 }
+
 .schools .item{
     padding:30rpx 0;
 }
@@ -181,6 +197,10 @@
 .fullname{
     font-size:28rpx;
     color:#4C4C4C;
+}
+.datepicker picker-view{
+    text-align:center;
+    height:350rpx;
 }
 picker-view-column view{
     height:100rpx;

@@ -8,25 +8,38 @@ Page({
       sex:['男孩','女孩'],
       sexSel:[true,false],
       grade: ["幼儿园小班","幼儿园中班","幼儿园大班","小学一年级", "小学二年级", "小学三年级", "小学四年级", "小学五年级", "小学六年级", "初中一年级", "初中二年级", "初中三年级"],
-      step:[false,true,false],
+      step:[true,false,false],
       gradeSel:0,
       search:false,
       info:{}
     },
 
     chooseGrade:function(e){
-        let that = this;
-        console.log(e);
-        let sel = that.data.gradeSel;
-        let grade = that.data.grade;
-        let _sel;
+        let that = this
+        let sel = that.data.gradeSel
+        let grade = that.data.grade
+        let _sel
+        let info = that.data.info
         if (e.target.id == 'add'){
-            _sel = (sel < grade.length - 1) ? (sel + 1) : (grade.length - 1);
+            _sel = (sel < grade.length - 1) ? (sel + 1) : (grade.length - 1)
         } else if (e.target.id == 'min'){
-            _sel = (sel == 0) ? 0 : (sel - 1);
+            _sel = (sel == 0) ? 0 : (sel - 1)
         }
+        info.childGrade = _sel+1
         that.setData({
             gradeSel: _sel,
+            info:info,
+        })
+    },
+
+    dateChange:function(e){
+        console.log(e)
+        let that = this
+        let info = that.data.info
+        let val = e.detail.value
+        info.childBirth = that.data.datePicker.years[val[0]]+that.data.datePicker.months[val[1]]
+        that.setData({
+            info:info
         })
     },
 
@@ -85,6 +98,9 @@ Page({
             years.push(i)
         }
         for (let i = 1; i <= 12; i++) {
+            if (i < 10) {
+                i = '0' + i;
+            }
             months.push(i)
         }
         for (let i = 1; i <= 31; i++) {
@@ -129,7 +145,6 @@ Page({
                 }
             }
         })
-
     },
 
     setSchool:function(hot){
@@ -262,8 +277,21 @@ Page({
             }
         })
     },
+
+    inputName:function(e){
+        let that = this;
+       let value = e.detail.value;
+       let info = that.data.info;
+       info.nickname = value.replace(/[^\a-zA-Z\u4E00-\u9FA5]/g, "");
+       that.setData({
+            info:info
+       })
+    },
     onLoad: function (options) {
         let that = this;
+        wx.setNavigationBarTitle({
+            title: '名校家长圈',
+        })
         that.datePicker();
         const hotCity = that.data.hotCity;
         let citySel = [];

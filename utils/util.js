@@ -1,3 +1,4 @@
+
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -5,7 +6,6 @@ const formatTime = date => {
   const hour = date.getHours()
   const minute = date.getMinutes()
   const second = date.getSeconds()
-
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
@@ -44,5 +44,23 @@ module.exports = {
             result.push(arr[i]);
         }
         return result;
+    },
+    ajax:function(opt){
+        let header = (opt.type) ? { 'content-type': 'application/x-www-form-urlencoded' }:{ 'content-type': 'application/json' }
+        wx.request({
+            url:'http://101.132.71.121:8080/' + opt.url,
+            method: opt.type || 'GET',
+            header: header,
+            data: opt.data || '',
+            success: function (res) {
+                opt.success(res);
+            },
+            fail: function (res) {
+                opt.fail(res);
+            },
+            complete:function(res){
+                opt.complete(res);
+            }
+        })
     }
 }
