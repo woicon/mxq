@@ -12,16 +12,18 @@
     <view class='panel'>
         <view class='mpage'>
             <view class="page-title title-s">您孩子户籍所在的区</view>
-            <view class='select'>
-                <picker modle='selector' range="{{area}}">
+            <view class='select' id='liveDistrict'  bindtap='chooseDistrict'>
+                {{info.liveDistrict || '请选择'}}
+                <!-- <picker modle='selector' range="{{area}}">
                 <view class="picker">选择</view>
-                </picker>
+                </picker> -->
             </view>
             <view class="page-title title-s">您孩子计划报考的区</view>
-            <view class='select'>
-                <picker modle='selector' range="{{area}}">
+            <view class='select' id="targetDistrict" bindtap='chooseDistrict'>
+                <text>{{info.targetDistrict || '请选择'}}</text>
+                <!-- <picker modle='selector' range="{{area}}">
                     <view class="picker">选择</view>
-                </picker>
+                </picker> -->
             </view>
             <view class='info'>以上信息仅用于服务推进，平台严密保护您的隐私</view>
             <view class='button' bindtap="nextStep" id="0">下一步</view>
@@ -46,7 +48,7 @@
         <view class='mpage'>
             <view class='grade' bindtap='chooseGrade'>
                 <view id='min' class='ico-min {{minbtn?"hide":""}}'></view>
-                    <view>{{grade[gradeSel]}}</view>
+                    <view class='name'>{{grade[gradeSel]}}</view>
                 <view id='add' class='ico-add {{addbtn?"hide":""}}'></view>
             </view>
             <view class='childsex'>
@@ -79,18 +81,27 @@
         </view>
         <view class="titles" wx:if="{{schoolStatus}}">{{searchMsg}}</view>
         <view class='schools' wx:else>
-            <view class="titles" wx:if="{{searchRes}}">搜索结果</view>
-            <view class='titles' wx:else>热门学校</view>
-            <view class='bborder item' wx:for="{{hotSchool}}" bindtap='selectedSchool' id="{{index}}" wx:key="schools">
-                <view class="name">{{item.alias}}</view>
-                <view class="fullname">{{item.fullName}}</view>
+             <scroll-view class="scroll-view_H" scroll-y style="height: 100%">
+             <view class="mpage">
+                <view class="titles" wx:if="{{searchRes}}">搜索结果</view>
+                <view class='titles' wx:else>热门学校</view>
+                <view class='bborder item' wx:for="{{hotSchool}}" bindtap='selectedSchool' id="{{index}}" wx:key="schools">
+                    <view class="name">{{item.alias}}</view>
+                    <view class="fullname">{{item.fullName}}</view>
+                </view>
             </view>
+             </scroll-view>
         </view>
     </view>
 </view>
 
-<view></view>
-<view class='mpage'>
-    <view wx:for="{{area}}">{{item}}</view>
-    <view class='button' bindtap="submit" bindtap='subimtInfo'>确定</view>
+
+<view class='citys {{areaStat?"show":"sliderDown"}}'>
+    <view class='mpage'>
+        <view class='areas'>
+            <view class="area-item {{areaSel[index]?'active':''}}" id="{{index}}" data-name="{{district}}" wx:for="{{area}}" bindtap='chooseArea' wx:key="choosearea">{{item}}</view>
+        </view>
+        <view class='button' data-name="{{district}}" bindtap="selectArea">确定</view>
+    </view>
 </view>
+<view class='abs mask {{areaStat?"show":"fadeOut"}}' bindtap='hideArea'></view> 

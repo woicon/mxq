@@ -3,14 +3,15 @@ const app = getApp()
 const base = require('../../utils/util.js')
 Page({
   data: {
-      hotCity: ['上海', '杭州', '北京', '广州', '深圳', '苏州'],
-      area: ["黄浦", "卢湾", "静安", "徐汇", "浦东", "长宁", "虹口", "杨浦", "普陀", "闸北", "闵行", "宝山", "嘉定", "青浦", "奉贤", "南汇"],
+      hotCity: [],
+      area:[],
       sex:['男孩','女孩'],
       sexSel:[true,false],
       grade: ["幼儿园小班","幼儿园中班","幼儿园大班","小学一年级", "小学二年级", "小学三年级", "小学四年级", "小学五年级", "小学六年级", "初中一年级", "初中二年级", "初中三年级"],
       step:[true,false,false],
       gradeSel:0,
       search:false,
+      areaStat:false,
       info:{}
     },
 
@@ -227,29 +228,32 @@ Page({
 
     chooseCity:function(e){
         let that = this
-        let citySel = that.data.citySel
-        let _sel = citySel.map((itm)=>{
-            return itm = false;
+        let _sel = that.select({
+            arr: that.data.citySel,
+            id: e.target.id
         });
-        _sel[e.target.id] = true
         let info = that.data.info
         let selCity = that.data.hotCity[e.target.id]
         info.city = selCity
-        
         let yourLocation = app.globalData.location;
         that.getCity({
-            data: {
+            data:{
                 city: selCity
             },
             success:function(res){
-                let arealist = res.data.data.cities;
-                let datas = res.data.data;
-                let area = [];
+                let arealist = res.data.data.cities
+                let datas = res.data.data
+                let area = []
+                let areaSel = []
+
                 for (let i in arealist){
                     area[i] = arealist[i].district
+                    areaSel[i] = false
                 }
+
                 that.setData({
-                    area: area
+                    area: area,
+                    areaSel:areaSel
                 })
             }
         });
@@ -260,16 +264,20 @@ Page({
     },
 
     getCity:function(opt){
+        wx.showLoading();
         wx.request({
             url: app.host + 'location/getCityList',
             method: 'POST',
-            header: { 'content-type': 'application/x-www-form-urlencoded' },
             data:opt.data||'',
+            header: { 'content-type': 'application/x-www-form-urlencoded' },
+            //data:opt.data||'',
             success: function (res) {
-                opt.success(res);
+                opt.success(res)
+                wx.hideLoading()
             },
             fail: function (res) {
-                opt.fail(res);
+                opt.fail(res)
+                wx.hideLoading()
             }
         })
     },
@@ -289,60 +297,146 @@ Page({
     },
 
     inputName:function(e){
-        let that = this;
-       let value = e.detail.value;
-       let info = that.data.info;
-       info.nickname = value.replace(/[^\a-zA-Z\u4E00-\u9FA5]/g, "");
+        let that = this
+       let value = e.detail.value
+       let info = that.data.info
+       info.nickname = value.replace(/[^\a-zA-Z\u4E00-\u9FA5]/g, "")
        that.setData({
             info:info
        })
     },
+
+    chooseDistrict:function(e){
+        let that = this
+        that.setData({
+            areaStat:true,
+            district: e.target.id
+        });
+    },
+
+    hideArea:function(){
+        this.setData({
+            areaStat:false
+        });
+    },
+
+    chooseArea:function(e){
+        console.log(e)
+        let that = this
+        let areaSel = that.data.areaSel
+        let _sel = that.select({
+            arr:areaSel,
+            id: e.target.id
+        })
+        that.setData({
+            areaSel: _sel,
+            selectArea:e.target.id
+        })
+    },
+    select:o => {
+        let arr = o.arr
+        let _arr = arr.map(itm =>{
+            return itm = false
+        })
+        _arr[o.id] = true
+        return _arr
+    },
+
+    selectArea:function(e){
+        let that = this
+        let name = e.target.dataset.name
+        let info = that.data.info;
+        info[name] = that.data.area[that.data.selectArea]
+        that.setData({
+            info: info,
+            areaStat: false
+        })
+    },
+
     onLoad: function (options) {
-        let that = this;
-        
+        let that = this
+        wx.showLoading()
         wx.setNavigationBarTitle({
             title: '名校家长圈',
         })
-        that.datePicker();
-        
+        that.datePicker()
+        console.log(app.globalData)
         base.msg('您当前所在位置:' + app.globalData.location.province);
-        that.getCity({
-            success:function(res){
-                let cityList = res.data.data.cities;
-                let city = [];
-                for (var i in cityList){
-                    city[i] = cityList[i].city;
-                }
-                let citys = base.distinct(city)
-                let citySel = [];
-                for (var i in citys) {
-                    citySel[i] = false;
-                }
-                that.setData({
-                    hotCity: citys,
-                    citySel: citySel
-                })
-                
-            }
-        });
+        
     },
-    onReady: function () {
 
+    onReady: function () {
+        let that = this
+       
+        
     },
+
     onShow: function () {
+        let that = this
+        let pr = new Promise((r)=>{
+            that.getCity({
+                success: function (res) {
+                    let cityList = res.data.data.cities;
+                    let city = []
+                    for (var i in cityList) {
+                        city[i] = cityList[i].city;
+                    }
+                    let citys = base.distinct(city)
+                    let citySel = [];
+                    let normalCity = app.globalData.location.city
+                    r(normalCity)
+                    for (var i in citys) {
+                        citySel[i] = (citys[i] == normalCity) ? true : false
+                    }
+                    that.setData({
+                        hotCity: citys,
+                        citySel: citySel
+                    })
+                },
+                fail: function (res) {
+                    console.log(res)
+                }
+            });
+        })
+        
+        .then((re)=>{
+            console.log(re)
+            that.getCity({
+                data:{
+                    city:re
+                },
+                success: function (rt) {
+                    let arealist = rt.data.data.cities
+                    console.log(arealist)
+                    let area = []
+                    for (let i in arealist) {
+                        area[i] = arealist[i].district
+                    }
+                    that.setData({
+                        area: area
+                    })
+                }
+            })
+        })
+        
     },
+
     onHide: function () {
 
     },
+
     onUnload: function () {
 
     },
+
     onPullDownRefresh: function () {
 
     },
+
     onReachBottom: function () {
 
     },
+
     onShareAppMessage: function () {
 
     }

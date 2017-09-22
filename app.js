@@ -3,11 +3,11 @@ const QQMapWX = require('./libs/qqmap/qqmap-wx-jssdk.min.js')
 App({
   onLaunch: function () {
     let that = this;
-    let init = new Promise(()=>{
+    let init = new Promise( ()=> {
         let getLocation = new QQMapWX({
             key: 'RKABZ-R6DK6-BBSSZ-EW2BY-IFRA7-VHFU7'
         });
-        
+        wx.showLoading();
         wx.getLocation({
             type: 'wgs84',
             success: function (res) {
@@ -22,7 +22,9 @@ App({
                         longitude: res.longitude
                     },
                     success: function (res) {
+                        wx.showLoading();
                         console.log(res);
+                        wx.hideLoading();
                         let location = res.result.address_component;
                         
                         that.globalData.location = {
@@ -31,7 +33,10 @@ App({
                         }
                     },
                     fail: function (res) {
-                        console.log(res);
+                        that.globalData.location = {
+                            city:'上海',
+                            province:'上海'
+                        }
                     },
                     complete: function (res) {
                         console.log(res);

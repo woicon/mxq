@@ -46,21 +46,17 @@ module.exports = {
         return result;
     },
     ajax:function(opt){
-        let header = (opt.type) ? { 'content-type': 'application/x-www-form-urlencoded' }:{ 'content-type': 'application/json' }
+        let header = opt.type ? { 'content-type': 'application/x-www-form-urlencoded' }:{ 'content-type': 'application/json' }
         wx.request({
             url:'http://101.132.71.121:8080/' + opt.url,
             method: opt.type || 'GET',
             header: header,
             data: opt.data || '',
-            success: function (res) {
-                opt.success(res);
-            },
-            fail: function (res) {
-                opt.fail(res);
-            },
-            complete:function(res){
-                opt.complete(res);
+            success:function(res){
+                opt.success(res)
             }
+            //fail: opt.success || opt.fail(),
+            //complete: opt.complete || opt.complete()
         })
     }
 }

@@ -16,12 +16,29 @@
 .select{
     border:1px solid #E6E6E6;
     border-radius:8rpx;
-      margin-bottom:30rpx;
+    margin-bottom:30rpx;
+    padding:27rpx 40rpx;
+    position:relative;display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
+
+.select:after{
+    content:'';
+    border:3rpx solid #191919;
+    border-left:none;
+    border-top:none;
+    width:10px;
+    height:10px;
+    
+    transform:rotate(45deg);
+}
+
 .select picker{
     padding:27rpx 40rpx;
   
 }
+
 .picker{
     font-size:32rpx;
 }
@@ -109,8 +126,13 @@
     justify-content:space-around;
 }
 
+.grade .name{
+    color:#191919;
+}
+
 .grade view{
     padding:10rpx 40rpx;
+    color:#03A699;
 }
 
 .grade .hide{
@@ -184,7 +206,13 @@
 .clear.show{
     display:flex;
 }
-
+.schools{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    top:120rpx;
+}
 .schools .item{
     padding:30rpx 0;
 }
@@ -218,3 +246,51 @@ picker-view-column{
     margin-top:50rpx;
     color:#4c4c4c;
 }
+
+.citys{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    background:#fff;
+    z-index:200;
+    padding:50rpx 0;
+    visibility:hidden;
+}
+.citys.show{
+    display:block;
+    animation:sliderUp .5s ease-in;
+    visibility:inherit;
+}
+.mask{
+    display:none;
+    position:fixed;
+    z-index:100;
+    background:rgba(0,0,0,.5);
+    visibility:hidden;
+}
+.mask.show{
+    display:block;
+    visibility:inherit;
+    animation:fade .2s ease-in;
+}
+
+.areas{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    
+}
+.area-item{
+    width:30%;
+    padding:30rpx 0;
+    text-align:center;
+    background:#F2F2F2;
+    border-radius:200rpx;
+    margin-bottom:30rpx;
+}
+.area-item.active{
+    background:#03A699;
+    color:#fff;
+}
+
