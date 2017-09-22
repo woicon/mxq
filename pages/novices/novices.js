@@ -1,20 +1,22 @@
 // pages/novices/novices.js
 const app = getApp()
 const base = require('../../utils/util.js')
+const QQMapWX = require('../../libs/qqmap/qqmap-wx-jssdk.min.js')
 Page({
   data: {
       hotCity: [],
       area:[],
       sex:['男孩','女孩'],
-      sexSel:[true,false],
       grade: ["幼儿园小班","幼儿园中班","幼儿园大班","小学一年级", "小学二年级", "小学三年级", "小学四年级", "小学五年级", "小学六年级", "初中一年级", "初中二年级", "初中三年级"],
+      grades: ["幼儿园小班", "幼儿园中班", "幼儿园大班", "小学一年级", "小学二年级", "小学三年级", "小学四年级", "小学五年级", "初中一年级", "初中二年级", "初中三年级", "初中四年级"],
       step:[true,false,false],
+      sexSel: [true, false],
       gradeSel:0,
       search:false,
       areaStat:false,
       info:{}
     },
-
+    
     chooseGrade:function(e){
         let that = this
         let sel = that.data.gradeSel
@@ -33,7 +35,7 @@ Page({
         })
     },
 
-    dateChange:function(e){
+    dateChange:function(e) {
         console.log(e)
         let that = this
         let info = that.data.info
@@ -54,7 +56,7 @@ Page({
         })
     },
 
-    setInfo:function(name,value){
+    setInfo:(name,value)=> {
         let that = this;
         let _info = that.data.info;
         _info[name] = value;
@@ -76,17 +78,18 @@ Page({
         });
     },
 
-    nextStep:function(e){
-        let that = this;
-        let step = that.data.step;
+    nextStep:function(e) {
+        let that = this
+        let step = that.data.step
+        console.log(step)
         let _sel = step.map((itm) => {
             return itm = false;
-        });
-        _sel[Number(e.target.id)+1] = true;
+        })
+        _sel[Number(e.target.id)+1] = true
         that.setData({
             step: _sel
         });
-        console.log(that.data.step);
+        console.log(that.data.step)
     },
 
     datePicker:function(){
@@ -138,8 +141,8 @@ Page({
             success:function(res){
                 //console.log(res);
                 if(res.data.status == 0){
-                    let hot = res.data.data.schools;
-                    that.setSchool(hot);
+                    let hot = res.data.data.schools
+                    that.setSchool(hot)
                     that.setData({
                         hot:that.data.hotSchool
                     })
@@ -186,7 +189,7 @@ Page({
             success:function(res){
                 console.log(res);
                 if (res.data.status == 0){
-                    let _school = res.data.data.schools;
+                    let _school = res.data.data.schools
                     that.setSchool(_school);
                     that.setData({
                         searchRes:true
@@ -222,7 +225,7 @@ Page({
         this.setData({
             search:false,
             info:info,
-            selectedSchool: this.data.hotSchool[e.currentTarget.id].fullName,
+            selectedSchool: this.data.hotSchool[e.currentTarget.id].fullName
         })
     },
 
@@ -354,26 +357,57 @@ Page({
     },
 
     onLoad: function (options) {
+        console.log('onload')
         let that = this
-        wx.showLoading()
         wx.setNavigationBarTitle({
             title: '名校家长圈',
         })
-        that.datePicker()
-        console.log(app.globalData)
-        base.msg('您当前所在位置:' + app.globalData.location.province);
-        
-    },
-
-    onReady: function () {
-        let that = this
-       
-        
-    },
-
-    onShow: function () {
-        let that = this
-        let pr = new Promise((r)=>{
+        let getLocation = new QQMapWX({
+            key: 'RKABZ-R6DK6-BBSSZ-EW2BY-IFRA7-VHFU7'
+        })
+        let init = new Promise((re, rj) => {
+            wx.showLoading()
+            wx.getStorage({
+                key: 'location',
+                success: function(res) {
+                    re(res.data)
+                },
+                fail:function(){
+                    wx.getLocation({
+                        type: 'wgs84',
+                        success: function (res) {
+                            getLocation.reverseGeocoder({
+                                location: {
+                                    latitude: res.latitude,
+                                    longitude: res.longitude
+                                },
+                                success: function (data) {
+                                    let location = data.result.address_component
+                                    let _location = {
+                                        province: location.province,
+                                        city: location.city
+                                    }
+                                    re(_location)
+                                    wx.setStorage({
+                                        key: 'location',
+                                        data: _location,
+                                    })
+                                    wx.hideLoading()
+                                },
+                                fail: function () {
+                                    let normalArea = {
+                                        city: '上海',
+                                        province: '上海'
+                                    }
+                                    re(normalArea)
+                                }
+                            })
+                        }
+                    })
+                }
+            })
+        })
+        .then((normalCity,_rej)=>{
             that.getCity({
                 success: function (res) {
                     let cityList = res.data.data.cities;
@@ -383,42 +417,51 @@ Page({
                     }
                     let citys = base.distinct(city)
                     let citySel = [];
-                    let normalCity = app.globalData.location.city
-                    r(normalCity)
                     for (var i in citys) {
-                        citySel[i] = (citys[i] == normalCity) ? true : false
+                        citySel[i] = (citys[i] == normalCity.city) ? true : false
                     }
                     that.setData({
                         hotCity: citys,
                         citySel: citySel
                     })
-                },
-                fail: function (res) {
-                    console.log(res)
+                    wx.hideLoading()
                 }
-            });
+            })
+            return normalCity;
         })
-        
-        .then((re)=>{
-            console.log(re)
+        .then((normalCity,j)=>{
             that.getCity({
-                data:{
-                    city:re
+                data: {
+                    city: normalCity.city
                 },
                 success: function (rt) {
                     let arealist = rt.data.data.cities
-                    console.log(arealist)
                     let area = []
+                    let areaSel = []
                     for (let i in arealist) {
                         area[i] = arealist[i].district
+                        areaSel[i] = false
                     }
                     that.setData({
-                        area: area
+                        area: area,
+                        areaSel: areaSel
                     })
+                    wx.hideLoading()
                 }
             })
         })
-        
+        that.datePicker()
+        base.msg('您当前所在位置:' + app.globalData.location.province)
+    },
+
+    onReady: function () {
+        console.log('onReady')
+        let that = this
+    },
+
+    onShow: function () {
+        console.log('onShow')
+        let that = this
     },
 
     onHide: function () {

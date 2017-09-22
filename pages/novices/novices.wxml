@@ -13,17 +13,11 @@
         <view class='mpage'>
             <view class="page-title title-s">您孩子户籍所在的区</view>
             <view class='select' id='liveDistrict'  bindtap='chooseDistrict'>
-                {{info.liveDistrict || '请选择'}}
-                <!-- <picker modle='selector' range="{{area}}">
-                <view class="picker">选择</view>
-                </picker> -->
+                {{info.liveDistrict || '请选择区'}}
             </view>
             <view class="page-title title-s">您孩子计划报考的区</view>
             <view class='select' id="targetDistrict" bindtap='chooseDistrict'>
-                <text>{{info.targetDistrict || '请选择'}}</text>
-                <!-- <picker modle='selector' range="{{area}}">
-                    <view class="picker">选择</view>
-                </picker> -->
+                <text>{{info.targetDistrict || '请选择区'}}</text>
             </view>
             <view class='info'>以上信息仅用于服务推进，平台严密保护您的隐私</view>
             <view class='button' bindtap="nextStep" id="0">下一步</view>
