@@ -16,6 +16,9 @@ Page({
     
     loginSys:function(e){
         let that = this;
+        wx.redirectTo({
+            url: '/pages/find/find',
+        })
         if (that.data.phoneNumber){
             if (!that.data.phoneCode) {
                 base.msg('请输入验证码')

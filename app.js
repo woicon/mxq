@@ -105,25 +105,25 @@ App({
     },
     tabBar:[
         {
-            "ico":"../../pages/images/ico1.png",
+            "ico":"https://woicon.github.io/mxq/pages/images/ico1.png",
             "url": "/pages/training/training",
             "txt": "训练营",
             "selected":false,
         },
         {
-            "ico": "../../pages/images/ico2.png",
+            "ico": "https://woicon.github.io/mxq/pages/images/ico2.png",
             "url": "/pages/find/find",
             "txt": "发现",
             "selected": false,
         },
         {
-            "ico": "../../pages/images/ico3.png",
+            "ico": "https://woicon.github.io/mxq/pages/images/ico3.png",
             "url": "/pages/recommend/recommend",
             "txt": "有奖推荐",
             "selected": false,
         },
         {
-            "ico": "../../pages/images/ico4.png",
+            "ico": "https://woicon.github.io/mxq/pages/images/ico4.png",
             "url": "/pages/member/member",
             "txt": "我",
             "selected": false,

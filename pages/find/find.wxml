@@ -10,13 +10,13 @@
     <view class='mpage'>
         <view class='find-title'>热门搜索</view>
         <view class='viewcont'>
-            <view class="item school-item" bindtap='searchRes'  wx:for="{{hotSearch}}" wx:key="hotSerach">
+            <view class="item school-item" hover-class='item-hover' bindtap='searchRes'  wx:for="{{hotSearch}}" wx:key="hotSerach">
                 <view class="title">{{item}}</view>
             </view>
         </view>
         <view class='find-title'>专项训练营 顶尖名师亲自指导</view>
         <view class='viewcont'>
-            <view class='item' bindtap='searchRes' wx:for="{{tag}}" wx:key="tag">
+            <view class='item' hover-class='item-hover'  bindtap='searchRes' wx:for="{{tag}}" wx:key="tag">
                 <view class='title'>{{item.title}}</view>
                 <text wx:if="{{item.info}}">{{item.info}}</text>
             </view>
@@ -25,83 +25,114 @@
 </block>
 
 <block wx:else>
-<view class='mpage'>
-    <view class='sub-title'>为您找到了以下尚未满班的训练营</view>
+    <view class='mpage'>
+        <view class='sub-title'>为您找到了以下尚未满班的训练营</view>
 
-    <view class='flex-center-between filtrbar'>
-         <picker range="{{schoolType}}" data-name="schoolType" bindchange='changePicker' id='schoolValue'>
-            <view class='picker'>{{schoolValue||'小学'}}</view>
-        </picker>
-        <picker range="{{filtr}}" bindchange='changePicker' data-name="filtr" id='filtrValue'>
-            <view class='picker'>{{filtrValue||'智能排序'}}</view>
-        </picker>
-    </view>
-</view>
-
-<view class='flex camp-item'>
-    <view class='camp-img'>
-        <image src="../../pages/images/img2.png"></image>
-    </view>
-    <view class='cont'>
-        <view class='flex-start-between'>
-            <view>
-                <view class='camp-name'>导师 Alex <view class='ico ico-vip'></view></view>
-                <view class='camp-school'>上外附小三年级家长</view>
-            </view>
-
-            <view class='camp-star'>
-                <view class='star'>
-                    <view class='ico-star'></view>
-                    <view class='ico-star'></view>
-                    <view class='ico-star'></view>
-                    <view class='ico-star'></view>
-                    <view class='ico-star'></view>
-                </view>
-                <view class='price'>
-                    ¥180/月
-                </view>
-            </view>
+        <view class='flex-center-between filtrbar'>
+            <picker range="{{schoolType}}" data-name="schoolType" bindchange='changePicker' id='schoolValue'>
+                <view class='picker'>{{schoolValue||'小学'}}</view>
+            </picker>
+            <picker range="{{filtr}}" bindchange='changePicker' data-name="filtr" id='filtrValue'>
+                <view class='picker'>{{filtrValue||'智能排序'}}</view>
+            </picker>
         </view>
-        <view class='camp-tag'>
-            <view>学霸家长</view>
-            <view>奥数获奖</view>
-            <view>门萨会员</view>
+    </view>
+
+    <navigator class='flex camp-item'>
+        <view class='camp-img'>
+            <image src="../../pages/images/img2.png"></image>
         </view>
-        <view class='camp-info'>平台点评：倡导高效快乐的学习方法，注重自主学习习惯的培养，侠客岛成员</view>
-    </view>
-</view>
-
-<view class='flex camp-item'>
-    <view class='camp-img'>
-        <image src="../../pages/images/img2.png"></image>
-    </view>
-    <view class='cont'>
-        <view class='flex-start-between'>
-            <view>
-                <view class='camp-name'>导师 Alex <view class='ico ico-vip'></view></view>
-                <view class='camp-school'>上外附小三年级家长</view>
-            </view>
-
-            <view class='camp-star'>
-                <view class='star'>
-                    <view class='ico-star'></view>
-                    <view class='ico-star'></view>
-                    <view class='ico-star'></view>
-                    <view class='ico-star'></view>
-                    <view class='ico-star'></view>
+        <view class='cont'>
+            <view class='flex-start-between'>
+                <view>
+                    <view class='camp-name'>导师 Alex <view class='ico ico-vip'></view></view>
+                    <view class='camp-school'>上外附小三年级家长</view>
                 </view>
-                <view class='price'>
-                    ¥180/月
+
+                <view class='camp-star'>
+                    <view class='star'>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                    </view>
+                    <view class='price'>
+                        ¥180/月
+                    </view>
                 </view>
             </view>
+            <view class='camp-tag'>
+                <view>学霸家长</view>
+                <view>奥数获奖</view>
+                <view>门萨会员</view>
+            </view>
+            <view class='camp-info'>平台点评：倡导高效快乐的学习方法，注重自主学习习惯的培养，侠客岛成员</view>
         </view>
-        <view class='camp-tag'>
-            <view>学霸家长</view>
-            <view>奥数获奖</view>
+    </navigator>
+    <navigator class='flex camp-item'>
+        <view class='camp-img'>
+            <image src="../../pages/images/img1.png"></image>
         </view>
-        <view class='camp-info'>平台点评：倡导高效快乐的学习方法，注重自主学习习惯的培养，侠客岛成员</view>
-    </view>
-</view>
+        <view class='cont'>
+            <view class='flex-start-between'>
+                <view>
+                    <view class='camp-name'>导师 Alex <view class='ico ico-vip'></view></view>
+                    <view class='camp-school'>上外附小三年级家长</view>
+                </view>
+
+                <view class='camp-star'>
+                    <view class='star'>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                    </view>
+                    <view class='price'>
+                        ¥180/月
+                    </view>
+                </view>
+            </view>
+            <view class='camp-tag'>
+                <view>学霸家长</view>
+                <view>奥数获奖</view>
+            </view>
+            <view class='camp-info'>平台点评：倡导高效快乐的学习方法，注重自主学习习惯的培养，侠客岛成员</view>
+        </view>
+    </navigator>
+
+    <navigator class='flex camp-item'>
+        <view class='camp-img'>
+            <image src="../../pages/images/simg.png"></image>
+        </view>
+        <view class='cont'>
+            <view class='flex-start-between'>
+                <view>
+                    <view class='camp-name'>导师 Alex <view class='ico ico-vip'></view></view>
+                    <view class='camp-school'>上外附小三年级家长</view>
+                </view>
+
+                <view class='camp-star'>
+                    <view class='star'>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                    </view>
+                    <view class='price'>
+                        ¥180/月
+                    </view>
+                </view>
+            </view>
+            <view class='camp-tag'>
+                <view>学霸家长</view>
+                <view>奥数获奖</view>
+            </view>
+            <view class='camp-info'>平台点评：倡导高效快乐的学习方法，注重自主学习习惯的培养，侠客岛成员</view>
+        </view>
+    </navigator>
 
 </block>
 <include src="../../pages/component/msg.wxml"/>

@@ -19,7 +19,6 @@
         "backgroundTextStyle":"light",
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "名校家长圈",
-        "navigationBarTextStyle":"black",
-        "enablePullDownRefresh":true
+        "navigationBarTextStyle":"black"
     }
 }

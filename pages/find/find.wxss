@@ -35,12 +35,14 @@ page{
     align-items:center;
     justify-content:center;
     flex-direction:column;
+    transition:.3s;
 }
 .item text{
     font-size:22rpx;
     display:block;
-    
-    
+}
+.item-hover{
+    background:#fafafa;
 }
 .school-item{
     min-height:90rpx;
@@ -58,7 +60,8 @@ page{
     width:200%;
     height:200%;
     position:absolute;
-    left:0;right:0;
+    left:0;
+    right:0;
     transform-origin:0 0;
     top:0;
     bottom:0;
