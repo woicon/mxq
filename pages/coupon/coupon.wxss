@@ -1,0 +1,37 @@
+.coupon-item{
+margin:50rpx;
+background-image: linear-gradient(-90deg, #FF8991 0%, #FD5C63 100%);
+box-shadow: 0 20rpx 40rpx 0 rgba(253,92,99,0.50);
+border-radius: 10rpx;
+padding:48rpx;
+position:relative;
+
+}
+.coupon-item view{
+    color:#fff;
+}
+.coupon-amount{
+    position:absolute;
+    right:40rpx;
+    top:30rpx;
+    font-weight:800;
+    font-size: 62rpx;
+    letter-spacing: 0;
+}
+.coupon-amount text{
+    font-size:42rpx;
+}
+.coupon-name{
+    font-weight:800;
+    font-size: 36rpx;
+    letter-spacing: 0;
+}
+.time{
+    font-size: 26rpx;
+    letter-spacing: 0;
+    margin:30rpx 0 45rpx 0;
+}
+.info{
+    font-size: 26rpx;
+    letter-spacing: 0;
+}

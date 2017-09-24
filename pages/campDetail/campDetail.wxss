@@ -1,0 +1,179 @@
+page{
+    padding-bottom:180rpx;
+}
+.col view{
+    display:inline-block;
+    box-sizing:border-box;
+    text-align:center;
+    font-size:42rpx;
+    font-weight:700;
+    width:30%;
+    color:#191919;
+    padding:40rpx 0 45rpx 0;
+}
+.comment-item:last-child{
+    border:none;
+}
+.col{
+    margin:0 50rpx 0 50rpx;
+    border-bottom:1px solid #f2f2f2;
+}
+.col .itm{
+    font-weight:700;
+}
+.camp-tag{
+    margin-top:0;
+}
+
+.camp-item .cont{
+    width:100%;
+}
+
+.col text{
+    display:block;
+    font-size:26rpx;
+    color:#4c4c4c;
+    font-weight:normal;
+}
+.comment-item{
+    padding:45rpx 0;
+    border-bottom:1px solid #f2f2f2;
+}
+
+.comment-item .title{
+    font-size:26rpx;
+    font-weight:700;
+    color:#191919;
+    margin-bottom:30rpx;
+}
+
+.comment-item .value{
+    color:#4C4C4C;
+    font-size:26rpx;
+    line-height:1.5;
+}
+
+.coupon{
+    background: #FD5C63;
+    display:inline-block;
+    color:#fff;
+    line-height:46rpx;
+    font-size:18rpx;
+    padding:0 10rpx 0 30rpx;
+    position:relative;
+    border-radius:4rpx;
+    margin-left:20rpx;
+}
+
+.coupon:after,.coupon:before{
+    content:'';
+    display:block !important;
+     position:absolute;
+}
+
+.coupon:before{
+    top:6px;
+    bottom:6px;
+    left:-5px;
+    width:10px;
+    border-radius:100%;
+    background:#fff;
+}
+.coupon:after{
+    top:0;
+    bottom:0;
+    left:10px;
+    width:1px;
+    border-left:1px dotted #ffffff;
+}
+
+.selectbox {
+    margin-bottom:40rpx;
+}
+
+.selectbox .select text{
+    font-size:32rpx;
+    font-weight:normal;
+}
+
+.selectbox .select{
+    display:flex;
+    border-radius:100px;
+    position:relative;
+    box-sizing:border-box;
+    line-height:105rpx;
+    padding:0 50rpx;
+    font-size:43rpx;
+    font-weight:700;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:32rpx;
+    color:#191919;
+    transition:.2s;
+}
+.selectbox .hot{
+    font-weight:normal;
+    font-size:32rpx;
+}
+.selectbox .active{
+    background:#03A699;
+    color:#fff;
+}
+.selectbox .active:after{
+    border:none;
+}
+.selectbox view:after{
+    border-radius:100px;
+}
+.value-img view{
+     display:inline-block;
+     margin-right:20rpx;
+}
+.value-img image{
+    width:70rpx;
+    height:70rpx;
+}
+.okpage{
+    text-align:center;
+}
+.okpage .title{
+    font-size:40rpx;
+    font-weight:800;
+    color:#191919;
+}
+.okico{
+    font-size:120rpx;
+    color:#03A699;
+    margin:50rpx 0;
+}
+.okinfo{
+    margin:50rpx 0 90rpx
+}
+.okinfo .titles{
+    font-size:36rpx;
+    color:#FC7C81;
+}
+.okinfo text{
+    font-size:32rpx;
+color:#4A4A4A;}
+
+.name-hot{
+    line-height:50rpx;
+    background:#FD5C63;
+    border-radius:4rpx;
+    color:#fff;
+    font-size:22rpx;
+    width:88rpx;
+    text-align:center;
+    font-weight:normal;
+    margin-left:20rpx;
+}
+.special{
+    padding-bottom:0;
+}
+.special .camp-school{
+    margin-bottom:0;
+}
+.special .camp-name{
+    margin-bottom:10rpx;
+}

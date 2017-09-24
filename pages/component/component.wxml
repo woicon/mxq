@@ -1,5 +1,20 @@
 <template name="msglayer">
-    <view class="abs msg {{msg?'show':''}}">
+    <view class="abs msg {{msg?'show':'fadeOut'}}">
         <text>{{msg}}</text>
+    </view>
+</template>
+
+<template name="tabBar">
+    <view class="tabbar tborder">
+        <navigator  
+        wx:for="{{tabBar}}" 
+        wx:key="tabbar"
+        url="{{item.url}}" 
+        class="{{item.selected?'active':''}}"
+        open-type="redirect"
+        hover-class="other-navigator-hover">
+            <view style="background-image:url({{item.ico}})" class="ico"></view>
+            <text>{{item.txt}}</text>
+        </navigator>
     </view>
 </template>

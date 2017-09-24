@@ -8,7 +8,6 @@ const formatTime = date => {
   const second = date.getSeconds()
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
-
 const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
@@ -18,8 +17,8 @@ module.exports = {
     formatTime: formatTime,
     //消息框
     msg:function(txt){
-    let _curPageArr = getCurrentPages();
-    let _curPage = _curPageArr[_curPageArr.length-1];
+    let _curPageArr = getCurrentPages()
+    let _curPage = _curPageArr[_curPageArr.length-1]
     _curPage.setData({
         msg:txt,
     })
@@ -51,7 +50,7 @@ module.exports = {
             url:'http://101.132.71.121:8080/' + opt.url,
             method: opt.type || 'GET',
             header: header,
-            data: opt.data || '',
+            data: opt.data || null,
             success:function(res){
                 opt.success(res)
             }

@@ -66,31 +66,7 @@
     </view>
 </view>
 
- <view class='abs searchpage {{search?"show":""}}'>
-    <view class='mpage'>
-        <view class='searchbar'>
-            <view class='ico ico-search'></view>
-            <input class="searchinput" bindinput="searchKeyup" value='{{searchKeyWord}}' placeholder='输入关键词搜索'></input>
-            <view class='clear {{clear?"show":""}}' bindtap='clearKeyword'>取消</view>
-        </view>
-        <view class="titles" wx:if="{{schoolStatus}}">{{searchMsg}}</view>
-        <view class='schools' wx:else>
-             <scroll-view class="scroll-view_H" scroll-y style="height: 100%">
-             <view class="mpage">
-                <view class="titles" wx:if="{{searchRes}}">搜索结果</view>
-                <view class='titles' wx:else>热门学校</view>
-                <view class='bborder item' wx:for="{{hotSchool}}" bindtap='selectedSchool' id="{{index}}" wx:key="schools">
-                    <view class="name">{{item.alias}}</view>
-                    <view class="fullname">{{item.fullName}}</view>
-                </view>
-            </view>
-             </scroll-view>
-        </view>
-    </view>
-</view>
-
-
-<view class='citys {{areaStat?"show":"sliderDown"}}'>
+<view class='layer {{areaStat?"show":"sliderDown"}}'>
     <view class='mpage'>
         <view class='areas'>
             <view class="area-item {{areaSel[index]?'active':''}}" id="{{index}}" data-name="{{district}}" wx:for="{{area}}" bindtap='chooseArea' wx:key="choosearea">{{item}}</view>

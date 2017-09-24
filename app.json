@@ -1,15 +1,25 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/registration/registration",
-    "pages/find/find",
-    "pages/novices/novices",
-    "pages/logs/logs"
-  ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
-  }
+    "pages":[
+        "pages/index/index",
+        "pages/home/home",
+        "pages/registration/registration",
+        "pages/searchSchool/searchSchool",
+        "pages/find/find",
+        "pages/findDetail/findDetail",
+        "pages/fav/fav",
+        "pages/novices/novices",
+        "pages/campDetail/campDetail",
+        "pages/training/training",
+        "pages/recommend/recommend",
+        "pages/member/member",
+        "pages/coupon/coupon",
+        "pages/setting/setting"
+    ],
+    "window":{
+        "backgroundTextStyle":"light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "名校家长圈",
+        "navigationBarTextStyle":"black",
+        "enablePullDownRefresh":true
+    }
 }

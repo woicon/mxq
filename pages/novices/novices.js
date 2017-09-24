@@ -1,10 +1,9 @@
 // pages/novices/novices.js
-const app = getApp()
+var app = getApp()
 const base = require('../../utils/util.js')
-const QQMapWX = require('../../libs/qqmap/qqmap-wx-jssdk.min.js')
 Page({
   data: {
-      hotCity: [],
+      //hotCity: [],
       area:[],
       sex:['男孩','女孩'],
       grade: ["幼儿园小班","幼儿园中班","幼儿园大班","小学一年级", "小学二年级", "小学三年级", "小学四年级", "小学五年级", "小学六年级", "初中一年级", "初中二年级", "初中三年级"],
@@ -129,25 +128,8 @@ Page({
     },
 
     searchSchool:function(e){
-        let that = this;
-        that.setData({
-            search:true
-        });
-        wx.request({
-            url:app.host + 'school/getHot',
-            data:{
-                city:'上海'|| that.data.location.city
-            },
-            success:function(res){
-                //console.log(res);
-                if(res.data.status == 0){
-                    let hot = res.data.data.schools
-                    that.setSchool(hot)
-                    that.setData({
-                        hot:that.data.hotSchool
-                    })
-                }
-            }
+        wx.navigateTo({
+            url: '/pages/searchSchool/searchSchool',
         })
     },
 
@@ -163,69 +145,6 @@ Page({
         this.setData({
             hotSchool: school,
             schoolStatus: false,
-        })
-    },
-
-    searchKeyup:function(e){
-        let that = this;
-        let value = e.detail.value;
-        if(e.detail.value != ''){
-            this.setData({
-                clear:true,
-                searchKeyWord:e.detail.value
-            })
-        }else{
-            this.setData({
-                clear: false,
-                schoolStatus:false,
-            })
-        }
-
-        wx.request({
-            url: app.host + 'school/search',
-            data: {
-                name:e.detail.value,
-            },
-            success:function(res){
-                console.log(res);
-                if (res.data.status == 0){
-                    let _school = res.data.data.schools
-                    that.setSchool(_school);
-                    that.setData({
-                        searchRes:true
-                    })
-                }
-                else if (res.data.code === 'KEYWORD_IS_NULL'){
-                    that.setData({
-                        schoolStatus: false,
-                        searchRes: false,
-                        hotSchool:that.data.hot
-                    })
-                }
-                else if (res.data.code === 'NO_SUCH_SCHOOL'){
-                    that.setData({
-                        schoolStatus:true,
-                        searchMsg:res.data.message
-                    })
-                }
-            }
-        })
-    },
-    
-    clearKeyword:function(e){
-        this.setData({
-            clear:false,
-            searchKeyWord:'',
-        })
-    },
-
-    selectedSchool:function(e){
-        let info = this.data.info;
-        info.childSchool = this.data.hotSchool[e.currentTarget.id].id;
-        this.setData({
-            search:false,
-            info:info,
-            selectedSchool: this.data.hotSchool[e.currentTarget.id].fullName
         })
     },
 
@@ -253,7 +172,6 @@ Page({
                     area[i] = arealist[i].district
                     areaSel[i] = false
                 }
-
                 that.setData({
                     area: area,
                     areaSel:areaSel
@@ -287,16 +205,19 @@ Page({
 
     //提交
     subimtInfo:function(){
-        let that = this;
-        wx.request({
-            url: app.host + 'user/completeInfo',
-            method:'POST',
-            header: { 'content-type': 'application/x-www-form-urlencoded' },
-            data: that.data.info,
-            success:function(res){
-
-            }
+        let that = this
+        wx.reLaunch({
+            url:'/pages/training/training'
         })
+        // wx.request({
+        //     url: app.host + 'user/completeInfo',
+        //     method:'POST',
+        //     header: { 'content-type': 'application/x-www-form-urlencoded' },
+        //     data: that.data.info,
+        //     success:function(res){
+
+        //     }
+        // })
     },
 
     inputName:function(e){
@@ -362,106 +283,116 @@ Page({
         wx.setNavigationBarTitle({
             title: '名校家长圈',
         })
-        let getLocation = new QQMapWX({
-            key: 'RKABZ-R6DK6-BBSSZ-EW2BY-IFRA7-VHFU7'
-        })
-        let init = new Promise((re, rj) => {
-            wx.showLoading()
-            wx.getStorage({
-                key: 'location',
-                success: function(res) {
-                    re(res.data)
-                },
-                fail:function(){
-                    wx.getLocation({
-                        type: 'wgs84',
-                        success: function (res) {
-                            getLocation.reverseGeocoder({
-                                location: {
-                                    latitude: res.latitude,
-                                    longitude: res.longitude
-                                },
-                                success: function (data) {
-                                    let location = data.result.address_component
-                                    let _location = {
-                                        province: location.province,
-                                        city: location.city
-                                    }
-                                    re(_location)
-                                    wx.setStorage({
-                                        key: 'location',
-                                        data: _location,
-                                    })
-                                    wx.hideLoading()
-                                },
-                                fail: function () {
-                                    let normalArea = {
-                                        city: '上海',
-                                        province: '上海'
-                                    }
-                                    re(normalArea)
-                                }
-                            })
-                        }
-                    })
-                }
-            })
-        })
-        .then((normalCity,_rej)=>{
-            that.getCity({
-                success: function (res) {
-                    let cityList = res.data.data.cities;
-                    let city = []
-                    for (var i in cityList) {
-                        city[i] = cityList[i].city;
+        wx.getStorage({
+            key: 'location',
+            success: function (res) {
+                that.setData({
+                    location: res.data
+                })
+            },
+            fail:function(){
+                that.setData({
+                    location: {
+                        city: '上海',
+                        province: '上海'
                     }
-                    let citys = base.distinct(city)
-                    let citySel = [];
-                    for (var i in citys) {
-                        citySel[i] = (citys[i] == normalCity.city) ? true : false
-                    }
-                    that.setData({
-                        hotCity: citys,
-                        citySel: citySel
-                    })
-                    wx.hideLoading()
-                }
-            })
-            return normalCity;
-        })
-        .then((normalCity,j)=>{
-            that.getCity({
-                data: {
-                    city: normalCity.city
-                },
-                success: function (rt) {
-                    let arealist = rt.data.data.cities
-                    let area = []
-                    let areaSel = []
-                    for (let i in arealist) {
-                        area[i] = arealist[i].district
-                        areaSel[i] = false
-                    }
-                    that.setData({
-                        area: area,
-                        areaSel: areaSel
-                    })
-                    wx.hideLoading()
-                }
-            })
+                })
+            }
         })
         that.datePicker()
-        base.msg('您当前所在位置:' + app.globalData.location.province)
+
+        wx.request({
+            url: app.host + 'location/getCityList',
+            method: 'POST',
+            header: { 'content-type': 'application/x-www-form-urlencoded' },
+            //data:opt.data||'',
+            success: function (res) {
+                console.log(res)
+                let cityList = res.data.data.cities
+                let city = []
+                for (var i in cityList) {
+                    city[i] = cityList[i].city;
+                }
+                let citys = base.distinct(city)
+                let citySel = [];
+                for (var i in citys) {
+                    citySel[i] = (citys[i] == that.data.location.city) ? true : false
+                }
+                that.setData({
+                    hotCity: citys,
+                    citySel: citySel,
+
+                })
+                wx.hideLoading()
+            },
+            fail: function (res) {
+                opt.fail(res)
+                wx.hideLoading()
+            }
+        })
+       
+       // base.msg('您当前所在位置:' + app.globalData.location.province)
     },
 
     onReady: function () {
         console.log('onReady')
         let that = this
+        console.log(that.data.location.city)
+        // that.getCity({
+        //     data: {
+        //         city: that.data.location.city
+        //     },
+        //     success: function (rt) {
+        //         console.log(rt)
+        //         let arealist = rt.data.data.cities
+        //         let area = []
+        //         let areaSel = []
+        //         for (let i in arealist) {
+        //             area[i] = arealist[i].district
+        //             areaSel[i] = false
+        //         }
+        //         that.setData({
+        //             area: area,
+        //             areaSel: areaSel
+        //         })
+        //         wx.hideLoading()
+        //     }
+        // })
+        wx.request({
+            url: app.host + 'location/getCityList',
+            method: 'POST',
+            header: { 'content-type': 'application/x-www-form-urlencoded' },
+            data:{
+                city: that.data.location.city
+            },
+            success: function (rt) {
+                console.log(rt)
+                let arealist = rt.data.data.cities
+                let area = []
+                let areaSel = []
+                for (let i in arealist) {
+                    area[i] = arealist[i].district
+                    areaSel[i] = false
+                }
+                that.setData({
+                    area: area,
+                    areaSel: areaSel
+                })
+                wx.hideLoading()
+            },
+            fail: function (res) {
+                opt.fail(res)
+                wx.hideLoading()
+            }
+        })
+        wx.hideLoading()
     },
 
     onShow: function () {
-        console.log('onShow')
         let that = this
+        
+       // console.log('onShow' + app.globalData.selectSchool.fullName)
+        
     },
 
     onHide: function () {

@@ -1,0 +1,330 @@
+<include src="../../pages/component/msg.wxml"/>
+<block wx:if="{{type==0}}">
+    <view class='flex camp-item noborder'>
+        <view class='camp-img'>
+            <image src="../../pages/images/img2.png"></image>
+        </view>
+        <view class='cont'>
+            <view class='flex-start-between'>
+                <view>
+                    <view class='camp-name'>导师 Alex <view class='ico ico-vip'></view></view>
+                    <view class='camp-school'>上外附小三年级家长</view>
+                </view>
+
+                <view class='camp-star'>
+                    <view class='star'>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                    </view>
+                    <view class='price'>
+                        ¥180/月
+                    </view>
+                </view>
+            </view>
+            <view class='camp-tag'>
+                <view>学霸家长</view>
+                <view>奥数获奖</view>
+                <view>门萨会员</view>
+            </view>
+        </view>
+    </view>
+
+    <view class='flex-center-between col'>
+        <view class='itm'>
+            1901
+            <text>手册</text>
+        </view>
+            <view class='itm'>
+            1901
+            <text>家长点赞</text>
+        </view>
+            <view class='itm'>
+            1901
+            <text>成员家长</text>
+        </view>
+    </view>
+</block>
+<block wx:elif="{{type==1}}">
+    <view class='flex camp-item special noborder'>
+
+        <view class='cont'>
+            <view class='flex-start-between'>
+                <view>
+                    <view class='camp-name'>幼升小：语言表达+看图说话
+                        <view class='name-hot'>热门</view>
+                    </view>
+                    <view class='camp-school'>实战训练、冲刺模拟、每周2次模拟题+讲解2课时</view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class='flex-center-between col'>
+        <view class='itm'>
+            1901
+            <text>手册</text>
+        </view>
+            <view class='itm'>
+            1901
+            <text>家长点赞</text>
+        </view>
+            <view class='itm'>
+            1901
+            <text>成员家长</text>
+        </view>
+    </view>
+
+      <view class='flex camp-item camp-teacher'>
+        <view class='camp-img'>
+            <image src="../../pages/images/img2.png"></image>
+        </view>
+        <view class='cont'>
+            <view class='flex-start-between'>
+                <view>
+                    <view class='camp-name'>导师 Alex <view class='ico ico-vip'></view></view>
+                    <view class='camp-school'>华育中学七年级家长</view>
+                </view>
+
+                <view class='camp-star'>
+                    <view class='star'>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                    </view>
+                    <view class='camp-level'>
+                        四星级导师
+                    </view>
+                </view>
+            </view>
+            <view class='camp-tag'>
+                <view>学霸家长</view>
+                <view>奥数获奖</view>
+                <view>门萨会员</view>
+            </view>
+        </view>
+    </view>
+
+    <view class='flex camp-item camp-teacher'>
+        <view class='camp-img'>
+            <image src="../../pages/images/img2.png"></image>
+        </view>
+        <view class='cont'>
+            <view class='flex-start-between'>
+                <view>
+                    <view class='camp-name'>导师 Candy <view class='ico ico-vip'></view></view>
+                    <view class='camp-school'>上外附小三年级家长</view>
+                </view>
+
+                <view class='camp-star'>
+                    <view class='star'>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                    </view>
+                    <view class='camp-level'>
+                        四星级导师
+                    </view>
+                </view>
+            </view>
+            <view class='camp-tag'>
+                <view>学霸家长</view>
+                <view>奥数获奖</view>
+                <view>门萨会员</view>
+            </view>
+        </view>
+    </view>
+  
+</block>
+
+<block wx:elif="{{type==2}}">
+    <view class='flex camp-item special noborder'>
+        <view class='camp-img'>
+            <image src="../../pages/images/simg.png"></image>
+        </view>
+        <view class='cont'>
+            <view class='flex-start-between'>
+                <view>
+                    <view class='camp-name'>四季教育 <view class='name-hot'>官方</view></view>
+                    <view class='camp-school'>幼升小课程+小学奥数+初中奥数</view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class='flex-center-between col'>
+        <view class='itm'>
+            9800
+            <text>收藏</text>
+        </view>
+            <view class='itm'>
+            900
+            <text>家长点赞</text>
+        </view>
+            <view class='itm'>
+           29
+            <text>成员家长</text>
+        </view>
+    </view>
+
+     <view class='flex camp-item camp-teacher'>
+        <view class='camp-img'>
+            <image src="../../pages/images/img2.png"></image>
+        </view>
+        <view class='cont'>
+            <view class='flex-start-between'>
+                <view>
+                    <view class='camp-name'>导师 Alex <view class='ico ico-vip'></view></view>
+                    <view class='camp-school'>四季教育 副总裁</view>
+                </view>
+
+                <view class='camp-star'>
+                    <view class='star'>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                    </view>
+                    <view class='camp-level'>
+                        四星级导师
+                    </view>
+                </view>
+            </view>
+            <view class='camp-tag'>
+                <view>学霸家长</view>
+                <view>奥数获奖</view>
+                <view>门萨会员</view>
+            </view>
+        </view>
+    </view>
+
+    <view class='flex camp-item camp-teacher'>
+        <view class='camp-img'>
+            <image src="../../pages/images/img2.png"></image>
+        </view>
+        <view class='cont'>
+            <view class='flex-start-between'>
+                <view>
+                    <view class='camp-name'>导师 Candy <view class='ico ico-vip'></view></view>
+                    <view class='camp-school'>四季教育 总裁助理</view>
+                </view>
+
+                <view class='camp-star'>
+                    <view class='star'>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                    </view>
+                    <view class='camp-level'>
+                        四星级导师
+                    </view>
+                </view>
+            </view>
+            <view class='camp-tag'>
+                <view>学霸家长</view>
+                <view>奥数获奖</view>
+                <view>门萨会员</view>
+            </view>
+        </view>
+    </view>
+
+  
+</block>
+
+
+<view class='mpage comment'>
+    <view class='comment-item'>
+        <view class='title'>平台点评</view>
+        <view class="value"> 倡导高效快乐的学习方法，注重自主学习习惯的培养，侠客岛成员</view>
+    </view>
+    <view class='comment-item'>
+        <view class='title'>导师说</view>
+        <view class="value"> 倡导高效快乐的学习方法，注重自主学习习惯的培养，侠客岛成员</view>
+    </view>
+    <view class='comment-item'>
+        <view class='title'>本训练营实行打赏制度</view>
+        <view class="value"> 季卡 ¥600  半年卡 ¥1000  年卡 ¥2000 <view class="coupon">优惠券可用</view></view>
+    </view>
+
+    <view class='comment-item'>
+        <view class='title'>已加入（160成员）</view>
+        <view class='value value-img'>
+            <view>
+                <image src='/pages/images/boy.png'></image>
+            </view>
+             <view>
+                <image src='/pages/images/boy.png'></image>
+            </view>
+             <view>
+                <image src='/pages/images/girl.png'></image>
+            </view>
+             <view>
+                <image src='/pages/images/girl.png'></image>
+            </view>
+            <view>
+                <image src='/pages/images/boy.png'></image>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class='footbar tborder'>
+    <view class='tool'>
+        <view> <view class='ico ico-share'> </view> <text>分享</text></view>
+         <view bindtap='{{likeStat?"likeThis":"unLike"}}'> <view class='ico  ico-like{{likeStat?"":"-sel"}}'> </view> <text>收藏</text></view>
+    </view>
+    <view class='button' bindtap='jionTo' hover="true" hover-class='button-hover'>立即加入</view>
+</view>
+
+
+<view class='layer {{layerStat?"show":"sliderDown"}}'>
+    <view class='mpage'>
+        <view class='page-title title-s'>
+            <view>请选择大赏给导师的方式</view>
+            <text>您的打赏，就是导师的动力</text>
+        </view>
+        <view class='selectbox'>
+        <view class='select border {{priceSel==index?"active":""}}' wx:for="{{price}}" wx:key="price" id="{{index}}" bindtap='choosePrice'>
+                <view>¥{{item.price}}<text>/{{item.time}} </text></view>
+                <view wx:if="{{item.hot}}" class="hot">最多人办卡</view>
+            </view>
+            <!-- <view class='select border active'>
+                <view>¥600<text>/3个月 </text></view>
+            </view>
+            <view class='select border'>
+                <view>¥600<text>/3个月</text> </view>
+                <view class="hot">最多人办卡</view>
+            </view>
+            <view class='select border'>¥2000<text>/12个月</text></view> -->
+        </view>
+        <view class='button' hover="true" hover-class='button-hover' data-name="{{district}}" bindtap="selectPrice">确定</view>
+    </view>
+</view>
+<view class='abs mask {{layerStat?"show":"fadeOut"}}' bindtap='hideLayer'></view> 
+
+
+<view class='layer {{payStat?"show":"sliderDown"}}'>
+    <view class='mpage'>
+        <view class='okpage'>
+            <view class='okico ico-ok'></view>
+            <view class='title'>支付成功</view>
+            <view class='okinfo'>
+                <view class='titles'>我们代表导师感谢您的打赏</view>
+                <text>现在立即前往 Alex开的家长训练营吧</text>
+            </view>
+       </view> 
+        <view class='button' hover="true" hover-class='button-hover' bindtap="hideLayer">确定</view>
+    </view>
+</view>
+<view class='abs mask {{payStat?"show":"fadeOut"}}' bindtap='hideLayer'></view> 
+
+

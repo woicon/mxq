@@ -1,0 +1,33 @@
+<include src="../../pages/component/msg.wxml"/>
+<include src="../../pages/component/tabbar.wxml"/>
+
+<view class='member-head'>
+    <image class="member-img" src='../../pages/images/img1.png'></image>
+    <view class='info'>
+        <view class='name'>{{member.nickname}}</view>
+        <view class='name-sub'>{{member.childSchool.fullName}}</view>
+    </view>
+</view>
+
+<view class='list'>
+    <view class='group'>
+        <navigator url="/pages/fav/fav" class='item bborder'>
+            <label><image src='../../pages/images/star.png'></image>
+            我收藏的训练营</label>
+            <view class='value'>{{member.collection}}个</view>
+        </navigator>
+        <view class='item'>
+            <label><image src='../../pages/images/txt.png'></image>
+            申请开班（训练营）</label>
+            <view class='value'>{{item.application}}</view>
+        </view>
+    </view>
+
+    <view class='item'>
+        <label><image src='../../pages/images/coupon.png'></image>优惠券</label>
+        <view class='value'>{{member.coupon}}</view>
+    </view>
+    <view class='item'>
+        <label><image src='../../pages/images/about.png'></image>关于我们</label>
+    </view>
+</view>

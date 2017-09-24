@@ -1,0 +1,52 @@
+page{
+     background:#f6f6f6; 
+}
+.member-head{
+    display:flex;
+    align-items:center;
+    background:#fff;
+    padding:45rpx 50rpx;
+    margin-bottom:10rpx;
+   
+}
+.name{
+    font-size:36rpx;
+    margin-bottom:10rpx;
+}
+.name-sub{
+    font-size: 26rpx;
+    color:#4C4C4C;
+}
+.member-img{
+    width:100rpx;
+    height:100rpx;
+     margin-right:30rpx;
+
+}
+.item.bborder:after{
+    left:50rpx;
+}
+.item{
+    margin:10rpx 0;
+    background:#fff;
+    justify-content:space-between;
+    height:126rpx;
+    padding:0 50rpx;
+    display:flex;
+    align-items:center;
+    font-size:32rpx;
+}
+.item label{
+    display:flex;
+    align-items:center;
+
+}
+.group .item{
+    margin:0;
+    overflow:hidden;
+}
+.item image{
+    width:50rpx;
+    height:50rpx;
+    margin-right:20rpx;
+}

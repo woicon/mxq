@@ -1,19 +1,53 @@
 //app.js
-
+const QQMapWX = require('./libs/qqmap/qqmap-wx-jssdk.min.js')
 App({
   onLaunch: function () {
     let that = this
     let init = new Promise( ()=> {
+       // wx.showLoading()
         
-        wx.showLoading()
         wx.getStorage({
             key: 'location',
-            success: function(res) {
+            success: function (res) {
                 that.globalData.location = res.data
-                wx.hideLoading()
+             //   wx.hideLoading()
             },
-            fail: function() {
-                
+            fail: function () {
+                // wx.getLocation({
+                //     type: 'wgs84',
+                //     success: function (res) {
+                //         let getLocation = new QQMapWX({
+                //             key: 'RKABZ-R6DK6-BBSSZ-EW2BY-IFRA7-VHFU7'
+                //         })
+                //         getLocation.reverseGeocoder({
+                //             location: {
+                //                 latitude: res.latitude,
+                //                 longitude: res.longitude
+                //             },
+                //             success: function (data) {
+                //                 let location = data.result.address_component
+                //                 let normalArea = {
+                //                     province: location.province,
+                //                     city: location.city
+                //                 }
+                //                 that.globalData.location = normalArea;
+                //                 wx.setStorage({
+                //                     key: 'location',
+                //                     data: normalArea,
+                //                 })
+                                
+                //             },
+                //             fail: function () {
+                //                 let normalArea = {
+                //                     city: '上海',
+                //                     province: '上海'
+                //                 }
+                //                 that.globalData.location = normalArea
+                //                 wx.hideLoading()
+                //             }
+                //         })
+                //     }
+                // })
             }
         })
     })
@@ -48,8 +82,58 @@ App({
     //     // 获取用户信息
     // })
   },
-  host: 'http://101.132.71.121:8080/',
+    host: 'http://101.132.71.121:8080/',
+    setTab: function () {
+        var _curPageArr = getCurrentPages()
+        var _curPage = _curPageArr[_curPageArr.length - 1]
+        var _pagePath = _curPage.__route__
+        if (_pagePath.indexOf('/') != 0) {
+            _pagePath = '/' + _pagePath
+        }
+        var tabBar = this.tabBar
+       
+        for (var i = 0; i < tabBar.length; i++) {
+            tabBar[i].selected = false
+            console.log(_pagePath)
+            if (tabBar[i].url == _pagePath) {
+                tabBar[i].selected = true
+            }
+        }
+        _curPage.setData({
+            tabBar: tabBar
+        });
+    },
+    tabBar:[
+        {
+            "ico":"../../pages/images/ico1.png",
+            "url": "/pages/training/training",
+            "txt": "训练营",
+            "selected":false,
+        },
+        {
+            "ico": "../../pages/images/ico2.png",
+            "url": "/pages/find/find",
+            "txt": "发现",
+            "selected": false,
+        },
+        {
+            "ico": "../../pages/images/ico3.png",
+            "url": "/pages/recommend/recommend",
+            "txt": "有奖推荐",
+            "selected": false,
+        },
+        {
+            "ico": "../../pages/images/ico4.png",
+            "url": "/pages/member/member",
+            "txt": "我",
+            "selected": false,
+        },
+    ],
+    member:{
+        id:6,
+    },
   globalData: {
     userInfo: null,
+    
   }
 })
