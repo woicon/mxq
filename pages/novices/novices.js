@@ -280,9 +280,7 @@ Page({
     onLoad: function (options) {
         console.log('onload')
         let that = this
-        wx.setNavigationBarTitle({
-            title: '名校家长圈',
-        })
+        
         wx.getStorage({
             key: 'location',
             success: function (res) {
@@ -301,11 +299,56 @@ Page({
         })
         that.datePicker()
 
+        
+       
+       // base.msg('您当前所在位置:' + app.globalData.location.province)
+    },
+
+    onReady: function () {
+        console.log('onReady')
+        let that = this
+        wx.setNavigationBarTitle({
+            title: '名校家长圈',
+        })
+        console.log(that.data.location.city)
         wx.request({
             url: app.host + 'location/getCityList',
             method: 'POST',
             header: { 'content-type': 'application/x-www-form-urlencoded' },
-            //data:opt.data||'',
+            data: {
+                city: that.data.location.city
+            },
+            success: function (rt) {
+                console.log(rt)
+                if (rt.data.data) {
+                    let arealist = rt.data.data.cities
+                    let area = []
+                    let areaSel = []
+                    for (let i in arealist) {
+                        area[i] = arealist[i].district
+                        areaSel[i] = false
+                    }
+                    that.setData({
+                        area: area,
+                        areaSel: areaSel
+                    })
+                }
+                wx.hideLoading()
+            },
+            fail: function (res) {
+                opt.fail(res)
+                wx.hideLoading()
+            }
+        })
+        wx.hideLoading()
+    },
+
+    onShow: function () {
+        let that = this
+        wx.request({
+            url: app.host + 'location/getCityList',
+            method: 'POST',
+            header: { 'content-type': 'application/x-www-form-urlencoded' },
             success: function (res) {
                 console.log(res)
                 let cityList = res.data.data.cities
@@ -330,73 +373,12 @@ Page({
                 wx.hideLoading()
             }
         })
-       
-       // base.msg('您当前所在位置:' + app.globalData.location.province)
-    },
-
-    onReady: function () {
-        console.log('onReady')
-        let that = this
-        console.log(that.data.location.city)
-        // that.getCity({
-        //     data: {
-        //         city: that.data.location.city
-        //     },
-        //     success: function (rt) {
-        //         console.log(rt)
-        //         let arealist = rt.data.data.cities
-        //         let area = []
-        //         let areaSel = []
-        //         for (let i in arealist) {
-        //             area[i] = arealist[i].district
-        //             areaSel[i] = false
-        //         }
-        //         that.setData({
-        //             area: area,
-        //             areaSel: areaSel
-        //         })
-        //         wx.hideLoading()
-        //     }
-        // })
-        wx.request({
-            url: app.host + 'location/getCityList',
-            method: 'POST',
-            header: { 'content-type': 'application/x-www-form-urlencoded' },
-            data:{
-                city: that.data.location.city
-            },
-            success: function (rt) {
-                console.log(rt)
-                let arealist = rt.data.data.cities
-                let area = []
-                let areaSel = []
-                for (let i in arealist) {
-                    area[i] = arealist[i].district
-                    areaSel[i] = false
-                }
-                that.setData({
-                    area: area,
-                    areaSel: areaSel
-                })
-                wx.hideLoading()
-            },
-            fail: function (res) {
-                opt.fail(res)
-                wx.hideLoading()
-            }
-        })
-        wx.hideLoading()
-    },
-
-    onShow: function () {
-        let that = this
         
        // console.log('onShow' + app.globalData.selectSchool.fullName)
-        
     },
 
     onHide: function () {
-
+        console.log('onHide')
     },
 
     onUnload: function () {

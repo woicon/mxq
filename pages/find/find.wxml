@@ -38,7 +38,7 @@
         </view>
     </view>
 
-    <navigator class='flex camp-item'>
+    <navigator url="/pages/campDetail/campDetail?id=0" class='flex camp-item'>
         <view class='camp-img'>
             <image src="../../pages/images/img2.png"></image>
         </view>
@@ -70,7 +70,7 @@
             <view class='camp-info'>平台点评：倡导高效快乐的学习方法，注重自主学习习惯的培养，侠客岛成员</view>
         </view>
     </navigator>
-    <navigator class='flex camp-item'>
+    <navigator url="/pages/campDetail/campDetail?id=1" class='flex camp-item'>
         <view class='camp-img'>
             <image src="../../pages/images/img1.png"></image>
         </view>
@@ -80,7 +80,6 @@
                     <view class='camp-name'>导师 Alex <view class='ico ico-vip'></view></view>
                     <view class='camp-school'>上外附小三年级家长</view>
                 </view>
-
                 <view class='camp-star'>
                     <view class='star'>
                         <view class='ico-star'></view>
@@ -102,14 +101,14 @@
         </view>
     </navigator>
 
-    <navigator class='flex camp-item'>
+    <navigator url="/pages/campDetail/campDetail?id=2" class='flex camp-item'>
         <view class='camp-img'>
             <image src="../../pages/images/simg.png"></image>
         </view>
         <view class='cont'>
             <view class='flex-start-between'>
                 <view>
-                    <view class='camp-name'>导师 Alex <view class='ico ico-vip'></view></view>
+                    <view class='camp-name'>四季教育<view class='ico ico-vip'></view></view>
                     <view class='camp-school'>上外附小三年级家长</view>
                 </view>
 

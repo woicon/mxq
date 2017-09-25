@@ -1,0 +1,16 @@
+<view class='layer {{payStat?"show":"sliderDown"}}'>
+    <view class='mpage'>
+        <view class='okpage'>
+            <view class='okico ico-warn'></view>
+            <view class='title'>支付成功</view>
+            <view class='okinfo'>
+                <view class='titles'>我们代表导师感谢您的打赏</view>
+                <text>现在立即前往 Alex开的家长训练营吧</text>
+            </view>
+       </view> 
+        <view class='button' hover="true" hover-class='button-hover' bindtap="hideLayer">确定</view>
+    </view>
+</view>
+<view class='abs mask {{payStat?"show":"fadeOut"}}' bindtap='hideLayer'></view> 
+<include src="../../pages/component/msg.wxml"/>
+

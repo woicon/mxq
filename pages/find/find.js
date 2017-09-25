@@ -55,8 +55,8 @@ Page({
 
     },
 
-    onShow: function () {
-
+    onShow: function (options) {
+        console.log(options)
     },
 
     onHide: function () {

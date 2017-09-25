@@ -13,7 +13,8 @@
         "pages/recommend/recommend",
         "pages/member/member",
         "pages/coupon/coupon",
-        "pages/setting/setting"
+        "pages/setting/setting",
+        "pages/apply/apply"
     ],
     "window":{
         "backgroundTextStyle":"light",

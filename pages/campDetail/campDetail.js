@@ -75,53 +75,36 @@ Page({
     },
 
     onLoad: function (options) {
-        wx.setNavigationBarTitle({
-            title: '名校家长训练营',
+        console.log(options)
+        let that = this
+        that.setData({
+            type: options.id
         })
     },
 
     onReady: function () {
-    
-    },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-    
+        let types = this.data.type
+        let name = ['名校家长训练营', '专项训练营', '机构直通车']
+        wx.setNavigationBarTitle({
+            title: name[types]
+        })
     },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-    
+    onShow: function (query) {
+        console.log(query)
     },
+    onHide: function (options) {
 
-    /**
-     * 生命周期函数--监听页面卸载
-     */
+    },
     onUnload: function () {
     
     },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
     onPullDownRefresh: function () {
     
     },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
     onReachBottom: function () {
     
     },
-
-    /**
-     * 用户点击右上角分享
-     */
     onShareAppMessage: function () {
     
     }
