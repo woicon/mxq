@@ -1,11 +1,10 @@
 var app = getApp()
 const base = require('../../utils/util.js')
 Page({
-
   data: {
-      teacher: ['未申请',' 已申请未审核','已审核通过','未通过'],
+      teacher: ['未申请','已申请未审核','已审核通过','未通过'],
       auth: ['未申请','已申请未审核','已审核通过','未通过'],
-      application: ['未申请','已申请','审核中','2已通过','未通过']
+      application: ['未申请','已申请','审核中','已通过','未通过']
 
   },
   onLoad: function (options) {

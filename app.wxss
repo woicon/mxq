@@ -465,6 +465,7 @@ page{
      font-size:40rpx;
      margin:50rpx 0;
      color:#191919;
+     font-weight:700;
 }
 
 .grade{

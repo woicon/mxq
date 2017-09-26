@@ -1,0 +1,21 @@
+.camp-list{
+    margin-bottom:40rpx;
+}
+.camp-list .camp-item:last-child:after{
+    border:none;
+}
+.camp-list .cont{
+    width:100%;
+}
+.camp-list .teacher{
+    font-size:32rpx;
+}
+.camp-list .camp-name{
+    margin-bottom:8rpx;
+}
+.camp-list .star{
+    line-height:50rpx;
+}
+.camp-download .button{
+    margin-top:40rpx;
+}

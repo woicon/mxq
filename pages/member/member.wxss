@@ -41,6 +41,18 @@ page{
     align-items:center;
 
 }
+.item .value{
+    font-size:32rpx;
+    color:#4c4c4c;
+}
+.item .new{
+    line-height:32rpx;
+    font-size:20rpx;
+    background: #FD5C63;
+    color:#fff;
+    padding:0 12rpx;
+    border-radius:30px;
+}
 .group .item{
     margin:0;
     overflow:hidden;

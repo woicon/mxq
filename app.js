@@ -106,7 +106,7 @@ App({
     tabBar:[
         {
             "ico":"https://woicon.github.io/mxq/pages/images/ico1.png",
-            "url": "/pages/training/training",
+            "url": "/pages/camp/camp",
             "txt": "训练营",
             "selected":false,
         },

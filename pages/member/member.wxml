@@ -16,16 +16,16 @@
             我收藏的训练营</label>
             <view class='value'>{{member.collection}}个</view>
         </navigator>
-        <view class='item'>
+        <navigator class='item' url="/pages/apply/apply" >
             <label><image src='../../pages/images/txt.png'></image>
-            申请开班（训练营）</label>
-            <view class='value'>{{item.application}}</view>
-        </view>
+            申请开班（训练营）<text class="new">NEW</text> </label>
+            <view class='value'>{{teacher[member.teacher]}}</view>
+        </navigator>
     </view>
 
     <navigator url='/pages/coupon/coupon' class='item'>
         <label><image src='../../pages/images/coupon.png'></image>优惠券</label>
-        <view class='value'>{{member.coupon}}</view>
+        <view class='value'>{{member.coupon}}张可用</view>
     </navigator>
     <view class='item'>
         <label><image src='../../pages/images/about.png'></image>关于我们</label>

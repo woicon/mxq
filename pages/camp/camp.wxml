@@ -1,0 +1,64 @@
+<include src="../../pages/component/msg.wxml"/>
+<include src="../../pages/component/tabbar.wxml"/>
+<view class='mpage'>
+    <view class='panel-tip'>
+        <view class='panel-ico ico-ok'></view>
+        <view class='panel-title'>恭喜您已成功加入以下训练营</view>
+    </view>
+</view>
+<view class='camp-list'>
+    <view class='flex camp-item'>
+        <view class='camp-img'>
+            <image src="../../pages/images/img2.png"></image>
+        </view>
+        <view class='cont'>
+            <view class='flex-start-between'>
+                <view>
+                    <view class='camp-name'>导师 Alex <view class='ico ico-vip'></view></view>
+                    <view class='camp-school'>上外附小三年级家长</view>
+                </view>
+                <view class='camp-star'>
+                    <view class='star'>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                    </view>
+                    <view class='teacher'>五星级导师</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='flex camp-item'>
+        <view class='camp-img'>
+            <image src="../../pages/images/img2.png"></image>
+        </view>
+        <view class='cont'>
+            <view class='flex-start-between'>
+                <view>
+                    <view class='camp-name'>导师 萌萌cat<view class='ico ico-vip'></view></view>
+                    <view class='camp-school'>华育中学七年级家长</view>
+                </view>
+                <view class='camp-star'>
+                    <view class='star'>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                        <view class='ico-star'></view>
+                    </view>
+                    <view class='teacher'>五星级导师</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class='mpage panel-tip camp-download'>
+    <view class='panel-cont'>
+        <view>现在，请下载安装名校家长圈官方App</view> 
+        <view>开始您令人期待的训练营之旅吧！</view>
+    </view>
+    <view class='button' hover-class='button-hover'>前往下载</view>
+</view>
