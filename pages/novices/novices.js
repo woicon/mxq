@@ -1,4 +1,3 @@
-// pages/novices/novices.js
 var app = getApp()
 const base = require('../../utils/util.js')
 Page({
@@ -7,7 +6,6 @@ Page({
       area:[],
       sex:['男孩','女孩'],
       grade: ["幼儿园小班","幼儿园中班","幼儿园大班","小学一年级", "小学二年级", "小学三年级", "小学四年级", "小学五年级", "小学六年级", "初中一年级", "初中二年级", "初中三年级"],
-      grades: ["幼儿园小班", "幼儿园中班", "幼儿园大班", "小学一年级", "小学二年级", "小学三年级", "小学四年级", "小学五年级", "初中一年级", "初中二年级", "初中三年级", "初中四年级"],
       step:[true,false,false],
       sexSel: [true, false],
       gradeSel:0,

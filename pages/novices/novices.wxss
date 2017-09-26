@@ -1,11 +1,6 @@
 /* pages/novices/novices.wxss */
 
-.input{
-    font-size:32rpx;
-    padding:26rpx 40rpx;
-    border:1px solid #E6E6E6;
-    border-radius:8rpx;
-}
+
 .button{
     margin-top:40rpx;
 }
@@ -122,49 +117,7 @@
     background-repeat:space;
 }
 
-.grade{
-    display:flex;
-    text-align:center;
-    justify-content:space-around;
-}
 
-.grade .name{
-    color:#191919;
-}
-
-.grade view{
-    padding:10rpx 40rpx;
-    color:#03A699;
-}
-
-.grade .hide{
-    display:none;
-}
-
-.childsex{
-    text-align:center;
-    display:flex;
-    align-content:space-between;
-    justify-content:space-between;
-    margin:40rpx 0;
-    flex-wrap:nowrap;
-}
-
-.childsex view{
-    padding:26rpx 0;
-    border: 2rpx solid #E6E6E6;
-    border-radius: 100rpx;
-    background:#fff;
-    width:45%;
-}
-
-.childsex view.active{
-    background:#03A699;
-    color:#fff;
-}
-.childsex view.active{
-    border:none;
-}
 
 
 

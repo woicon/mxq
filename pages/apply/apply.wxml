@@ -1,16 +1,45 @@
 <view class='layer {{payStat?"show":"sliderDown"}}'>
     <view class='mpage'>
-        <view class='okpage'>
-            <view class='okico ico-warn'></view>
-            <view class='title'>支付成功</view>
-            <view class='okinfo'>
-                <view class='titles'>我们代表导师感谢您的打赏</view>
-                <text>现在立即前往 Alex开的家长训练营吧</text>
-            </view>
-       </view> 
-        <view class='button' hover="true" hover-class='button-hover' bindtap="hideLayer">确定</view>
+        <view class='panel-tip'>
+            <view class='panel-ico ico-warn'></view>
+            <view class='panel-title'>抱歉，您尚未通过实名身份验证</view>
+            <view class='panel-cont'>抱歉，您尚未通过实名身份验证，要通过身份验证之后，才可以开办自己的训练营哦！</view>
+            <view class='button' hover="true" hover-class='button-hover' bindtap="hideLayer">确定</view>
+        </view>
     </view>
 </view>
-<view class='abs mask {{payStat?"show":"fadeOut"}}' bindtap='hideLayer'></view> 
-<include src="../../pages/component/msg.wxml"/>
+<view class='abs mask {{payStat?"show":"fadeOut"}}' bindtap='hideLayer'></view>
 
+<block wx:if="{{!applyOk}}">
+<view class='mpage'>
+    <view class="page-title title-s">
+        <view>身份验证通过后，您也可以成为导师，开办自己的训练营哦</view>
+        <text>请确认您孩子的个人信息，我们会尽快联系您，安排身份验证及试听事宜</text>
+    </view>
+
+    <view class='grade' bindtap='chooseGrade'>
+        <view id='min' class='ico-min {{minbtn?"hide":""}}'></view>
+            <view class='name'>{{grade[gradeSel]}}</view>
+        <view id='add' class='ico-add {{addbtn?"hide":""}}'></view>
+    </view>
+
+    <view class='childsex'>
+        <view wx:for="{{sex}}" wx:key="childSex" id="{{index}}" class='{{sexSel == index ? "active":""}}' bindtap='childSex'>{{item}}</view>
+    </view>
+
+    <view class='input'><input placeholder='请输入您孩子目前所在的学校' value="{{selectedSchool}}"  bindfocus="searchSchool"></input></view>
+    <view class='button' bindtap="submitApply">确认提交申请</view>
+</view>
+</block>
+
+<block wx:if="{{applyOk}}">
+<view class='mpage'>
+    <view class="panel-tip">
+        <view class='panel-ico ico-ok'></view>
+        <view class="panel-title">您已成功提交申请</view>
+        <view class="panel-cont">客服人员会尽快与您取得联系，请保持注册的手机号码畅通</view>
+        <view class='button' hover="true" hover-class='button-hover' bindtap="hideLayer">完成</view>
+    </view>
+</view>
+</block>
+<include src="../../pages/component/msg.wxml"/>

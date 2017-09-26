@@ -17,7 +17,7 @@ Page({
     loginSys:function(e){
         let that = this;
         wx.redirectTo({
-            url: '/pages/find/find',
+            url: '/pages/novices/novices',
         })
         if (that.data.phoneNumber){
             if (!that.data.phoneCode) {
