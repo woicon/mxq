@@ -2,55 +2,11 @@ var app = getApp()
 const base = require('../../utils/util.js')
 Page({
   data: {
-      //hotCity: [],
+      hotCity: ['北京市',"上海市","杭州市"],
       area:[],
-      sex:['男孩','女孩'],
-      grade: ["幼儿园小班","幼儿园中班","幼儿园大班","小学一年级", "小学二年级", "小学三年级", "小学四年级", "小学五年级", "小学六年级", "初中一年级", "初中二年级", "初中三年级"],
-      step:[true,false,false],
-      sexSel: [true, false],
-      gradeSel:0,
       search:false,
       areaStat:false,
       info:{}
-    },
-    
-    chooseGrade:function(e){
-        let that = this
-        let sel = that.data.gradeSel
-        let grade = that.data.grade
-        let _sel
-        let info = that.data.info
-        if (e.target.id == 'add'){
-            _sel = (sel < grade.length - 1) ? (sel + 1) : (grade.length - 1)
-        } else if (e.target.id == 'min'){
-            _sel = (sel == 0) ? 0 : (sel - 1)
-        }
-        info.childGrade = _sel+1
-        that.setData({
-            gradeSel: _sel,
-            info:info,
-        })
-    },
-
-    dateChange:function(e) {
-        console.log(e)
-        let that = this
-        let info = that.data.info
-        let val = e.detail.value
-        info.childBirth = that.data.datePicker.years[val[0]]+that.data.datePicker.months[val[1]]
-        that.setData({
-            info:info
-        })
-    },
-
-    childSex:function(e){
-        let that = this;
-        that.selected('sexSel',e.target.id);
-        let info = that.data.info;
-        info.childGender = that.data.sex[e.target.id];
-        that.setData({
-            info: info,
-        })
     },
 
     setInfo:(name,value)=> {
@@ -76,76 +32,10 @@ Page({
     },
 
     nextStep:function(e) {
-        let that = this
-        let step = that.data.step
-        console.log(step)
-        let _sel = step.map((itm) => {
-            return itm = false;
-        })
-        _sel[Number(e.target.id)+1] = true
-        that.setData({
-            step: _sel
-        });
-        console.log(that.data.step)
-    },
-
-    datePicker:function(){
-        let that = this;
-        const date = new Date()
-        const years = []
-        const months = []
-        const days = []
-        for (let i = 1990; i <= date.getFullYear(); i++) {
-            years.push(i)
-        }
-        for (let i = 1; i <= 12; i++) {
-            if (i < 10) {
-                i = '0' + i;
-            }
-            months.push(i)
-        }
-        for (let i = 1; i <= 31; i++) {
-            days.push(i)
-        }
-        this.setData({
-            datePicker:{
-                years:years,
-                months:months,
-                value: [9999,1]
-            }
-        })
-    },
-
-    bindChange: function (e) {
-        const val = e.detail.value
-        this.setData({
-            year: this.data.years[val[0]],
-            month: this.data.months[val[1]],
-            day: this.data.days[val[2]]
-        })
-    },
-
-    searchSchool:function(e){
         wx.navigateTo({
-            url: '/pages/searchSchool/searchSchool',
+            url: '/pages/novices/novices_two',
         })
     },
-
-    setSchool:function(hot){
-        let school = [];
-        for (var i in hot) {
-            school[i] = {
-                fullName: hot[i].fullName,
-                alias: hot[i].alias[0].alias,
-                id: hot[i].locationId
-            }
-        }
-        this.setData({
-            hotSchool: school,
-            schoolStatus: false,
-        })
-    },
-
     chooseCity:function(e){
         let that = this
         let _sel = that.select({
@@ -200,40 +90,17 @@ Page({
             }
         })
     },
-
-    //提交
-    subimtInfo:function(){
-        let that = this
-        wx.reLaunch({
-            url:'/pages/training/training'
-        })
-        // wx.request({
-        //     url: app.host + 'user/completeInfo',
-        //     method:'POST',
-        //     header: { 'content-type': 'application/x-www-form-urlencoded' },
-        //     data: that.data.info,
-        //     success:function(res){
-
-        //     }
-        // })
-    },
-
-    inputName:function(e){
-        let that = this
-       let value = e.detail.value
-       let info = that.data.info
-       info.nickname = value.replace(/[^\a-zA-Z\u4E00-\u9FA5]/g, "")
-       that.setData({
-            info:info
-       })
-    },
-
+    
     chooseDistrict:function(e){
         let that = this
-        that.setData({
-            areaStat:true,
-            district: e.target.id
-        });
+        if(that.data.area.length != 0){
+            that.setData({
+                areaStat:true,
+                district: e.target.id
+            });
+        }else{
+            base.msg('请选择在哪个城市寻找导师')
+        }
     },
 
     hideArea:function(){
@@ -255,7 +122,7 @@ Page({
             selectArea:e.target.id
         })
     },
-    select:o => {
+    select:function(o) {
         let arr = o.arr
         let _arr = arr.map(itm =>{
             return itm = false
@@ -295,10 +162,7 @@ Page({
                 })
             }
         })
-        that.datePicker()
-
         
-       
        // base.msg('您当前所在位置:' + app.globalData.location.province)
     },
 

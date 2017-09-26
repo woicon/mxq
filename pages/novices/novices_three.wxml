@@ -1,0 +1,12 @@
+<view class='step step3'>
+<view class='page-title title-s'>
+            <view>最后，为保护您的隐私</view>
+            <view>请设置展示给其他用户的昵称吧</view>
+        </view>
+    <view class='mpage'>
+        
+        <input class='input {{focus?"focus":""}}' bindblur='inputBlur' placeholder='请输入5-11位中英文字符，不带标点' bindinput='inputName' value="{{info.nickname}}" bindfocus='inputFocus'></input>
+        <view class='button' bindtap="submit" hover-class='button-hover' bindtap='subimtInfo'> <text>确定 </text></view>
+    </view>
+</view>
+<include src="../../pages/component/msg.wxml"/>

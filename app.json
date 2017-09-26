@@ -2,18 +2,17 @@
     "pages":[
         "pages/index/index",
         "pages/home/home",
-        "pages/registration/registration",
         "pages/searchSchool/searchSchool",
         "pages/find/find",
-        "pages/findDetail/findDetail",
         "pages/fav/fav",
         "pages/novices/novices",
+        "pages/novices/novices_two",
+        "pages/novices/novices_three",
         "pages/campDetail/campDetail",
         "pages/camp/camp",
-        "pages/recommend/recommend",
         "pages/member/member",
         "pages/coupon/coupon",
-        "pages/setting/setting",
+        "pages/recommend/recommend",
         "pages/apply/apply"
     ],
     "window":{

@@ -1,8 +1,7 @@
-<!--pages/novices/novices.wxml-->
 <include src="../../pages/component/msg.wxml"/>
-<view class='step step1 {{!step[0]?"hide":""}}'>
+<view class='step'>
+    <view class='page-title title-s'>请选择您孩子所在的城市</view>
     <view class='mpage'>
-        <view class='page-title title-s'>请选择您孩子所在的城市</view>
         <view class='area-hot'>
             <view class='area {{citySel[index]?"active":""}}' wx:for="{{hotCity}}" wx:key="hotCity" id="{{index}}" bindtap='chooseCity'>
                 {{item}}
@@ -20,52 +19,11 @@
                 <text>{{info.targetDistrict || '请选择区'}}</text>
             </view>
             <view class='info'>以上信息仅用于服务推进，平台严密保护您的隐私</view>
-            <view class='button' bindtap="nextStep" id="0">下一步</view>
+            <view class='button' bindtap="nextStep"  hover-class='button-hover' hover="true" id="0">
+            <text>下一步</text></view>
         </view>
     </view>
 </view>
-<view class='step step2 {{!step[1]?"hide":""}} {{search?"hide":""}}'>
-    <view class='mpage'>
-        <view class="page-title title-s">请选择您的孩子年龄</view>
-    </view>
-    <view class='datepicker'>
-        <picker-view mask-class="pickmask" indicator-style="height:50px;border-top:1px solid #03A699;border-bottom:1px solid #03A699;color:#000" style="width: 100%;" class="datepicker" value="{{datePicker.value}}" bindchange="dateChange">
-            <picker-view-column>
-                <view wx:for="{{datePicker.years}}" wx:key="years">{{item}}年</view>
-            </picker-view-column>
-            <picker-view-column>
-                <view wx:for="{{datePicker.months}}" wx:key="months">{{item}}月</view>
-            </picker-view-column>
-        </picker-view>
-    </view>
-    <view class='panel'>
-        <view class='mpage'>
-            <view class='grade' bindtap='chooseGrade'>
-                <view id='min' class='ico-min {{minbtn?"hide":""}}'></view>
-                    <view class='name'>{{grade[gradeSel]}}</view>
-                <view id='add' class='ico-add {{addbtn?"hide":""}}'></view>
-            </view>
-            <view class='childsex'>
-                <view wx:for="{{sex}}" wx:key="childSex" id="{{index}}" class='{{sexSel[index]?"active":""}}' bindtap='childSex'>{{item}}</view>
-            </view>
-            <view class='input'><input placeholder='请输入您孩子目前所在的学校' value="{{selectedSchool}}"  bindfocus="searchSchool"></input></view>
-            <view class='info'>以上信息仅用于服务推进，平台严密保护您的隐私</view>
-            <view class='button' bindtap="nextStep"  id="1">下一步</view>
-        </view>
-    </view>
-</view>
-
-<view class='step step3 {{!step[2]?"hide":""}}'>
-    <view class='mpage'>
-        <view class='page-title title-s'>
-            <view>最后，为保护您的隐私</view>
-            <view>请设置展示给其他用户的昵称吧</view>
-        </view>
-        <input class='input' placeholder='请输入5-11位中英文字符，不带标点' bindinput='inputName' value="{{info.nickname}}"></input>
-        <view class='button' bindtap="submit" bindtap='subimtInfo'>确定</view>
-    </view>
-</view>
-
 <view class='layer {{areaStat?"show":"sliderDown"}}'>
     <view class='mpage'>
         <view class='areas'>

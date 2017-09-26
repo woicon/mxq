@@ -10,10 +10,11 @@ Page({
   onLoad: function (options) {
       let that = this;
       app.setTab()
-      
   },
   onReady: function () {
-  
+      wx.setNavigationBarTitle({
+          title: '发现',
+      })
   },
   onShow: function () {
       let that = this

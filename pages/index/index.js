@@ -13,9 +13,9 @@ Page({
             index:e.detail.value,
         });
     },
-    
+
     loginSys:function(e){
-        let that = this;
+        let that = this
         wx.redirectTo({
             url: '/pages/novices/novices',
         })

@@ -1,0 +1,30 @@
+<view class='step step2 {{search?"hide":""}}'>
+    <view class="page-title title-s">请选择您的孩子年龄</view>
+    
+    <view class='datepicker'>
+        <picker-view mask-class="pickmask" indicator-style="height:50px;border-top:1px solid #03A699;border-bottom:1px solid #03A699;color:#000" style="width: 100%;" class="datepicker" value="{{datePicker.value}}" bindchange="dateChange">
+            <picker-view-column>
+                <view wx:for="{{datePicker.years}}" wx:key="years">{{item}}年</view>
+            </picker-view-column>
+            <picker-view-column>
+                <view wx:for="{{datePicker.months}}" wx:key="months">{{item}}月</view>
+            </picker-view-column>
+        </picker-view>
+    </view>
+    <view class='panel'>
+        <view class='mpage'>
+            <view class='grade' bindtap='chooseGrade'>
+                <view id='min' class='ico-min {{minbtn?"hide":""}}'></view>
+                    <view class='name'>{{grade[gradeSel]}}</view>
+                <view id='add' class='ico-add {{addbtn?"hide":""}}'></view>
+            </view>
+            <view class='childsex'>
+                <view wx:for="{{sex}}" wx:key="childSex" id="{{index}}" class='{{sexSel == index ? "active":""}}' bindtap='childSex'>{{item}}</view>
+            </view>
+            <view class='input'><input placeholder='请输入您孩子目前所在的学校' value="{{selectedSchool}}"   bindtap='searchSchool' disabled='true'></input></view>
+            <view class='info'>以上信息仅用于服务推进，平台严密保护您的隐私</view>
+            <view class='button' bindtap="nextStep"  hover-class='button-hover' id="1"> <text>下一步 </text></view>
+        </view>
+    </view>
+</view>
+<include src="../../pages/component/msg.wxml"/>

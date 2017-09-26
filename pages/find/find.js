@@ -52,7 +52,9 @@ Page({
     },
 
     onReady: function () {
-
+        wx.setNavigationBarTitle({
+            title: '发现',
+        })
     },
 
     onShow: function (options) {

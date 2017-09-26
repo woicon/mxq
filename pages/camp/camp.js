@@ -1,7 +1,6 @@
 var app = getApp()
 const base = require('../../utils/util.js')
 Page({
-
     data: {
 
     },

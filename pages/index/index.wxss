@@ -21,9 +21,16 @@
     font-size:32rpx;
     line-height:32rpx;
     padding:34rpx 40rpx;
+    border:1px solid #E6E6E6;
+    border-radius:8rpx;
+    /* box-sizing:border-box; */
+    /* transition:.4s; */
+}
+.input-line input.focus{
+    border:1px solid #03A699;
 }
 
-.input-line input:after{
+/* .input-line input:after{
     content:" ";
     width:200%;
     height:200%;
@@ -43,7 +50,7 @@
 }
 .input-line input.focus:after{
     border:1px solid #03A699;
-}
+} */
 
 .getcode{
     position:absolute;
