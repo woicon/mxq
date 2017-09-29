@@ -1,7 +1,7 @@
 <include src="../../pages/component/msg.wxml"/>
 <view class='flex camp-item'>
     <view class='camp-img'>
-        <image src="../../pages/images/img2.png"></image>
+        <image src="../../pages/images/girl.png"></image>
     </view>
     <view class='cont'>
         <view class='flex-start-between'>
@@ -34,7 +34,7 @@
 
 <view class='flex camp-item'>
     <view class='camp-img'>
-        <image src="../../pages/images/img2.png"></image>
+        <image src="../../pages/images/boy.png"></image>
     </view>
     <view class='cont'>
         <view class='flex-start-between'>

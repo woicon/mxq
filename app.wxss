@@ -217,6 +217,13 @@ page{
     height:100rpx;
     background:#fff;
 }
+.tabbar>view{
+    width:25%;
+    text-align:center;
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+}
 .tborder:after{
     content:'';
     position:absolute;
@@ -233,7 +240,7 @@ page{
     height:25px;
     background-repeat:no-repeat;
     background-position:0 -25px;
-    margin:0 auto;
+    margin:0 auto 6rpx;
     background-size:25px;
 }
 .tabbar text{
@@ -316,9 +323,9 @@ page{
     font-size:26rpx;
 }
 .camp-item{
-    margin:0 50rpx;
+    /* margin:0 50rpx; */
     /* //border-bottom:1px solid #F2F2F2; */
-    padding:30rpx 0;
+    padding:30rpx 50rpx;
     position:relative;
 }
 .camp-item:after{
@@ -552,7 +559,7 @@ page{
     font-size:32rpx;
 }
 
-.select:after{
+/* .select:after{
     content:'';
     border:3rpx solid #191919;
     border-left:none;
@@ -561,11 +568,10 @@ page{
     height:10px;
     margin-top:-3px;
     transform:rotate(45deg);
-}
+} */
 
 .select picker{
     padding:27rpx 40rpx;
-  
 }
 
 .picker{
@@ -633,7 +639,7 @@ page{
     display:none;
 }
 
-.info{
+.panel .info{
     font-size:26rpx;
     margin:46rpx 0;
     text-align:center;
@@ -689,6 +695,10 @@ picker-view-column{
 
 input.focus{
     border:1px solid #03A699;
+}
+.navigator-hover{
+    opacity:.9;
+    background:rgba(200,200,200,.1);
 }
 
 

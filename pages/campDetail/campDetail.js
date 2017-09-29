@@ -19,7 +19,8 @@ Page({
             }],
             payStat:false,
             type:2,
-            likeStat:true
+            likeStat:true,
+            priceSel:1
     },
 
     likeThis:function(e){

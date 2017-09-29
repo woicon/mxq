@@ -5,17 +5,19 @@ Page({
       teacher: ['未申请','已申请未审核','已审核通过','未通过'],
       auth: ['未申请','已申请未审核','已审核通过','未通过'],
       application: ['未申请','已申请','审核中','已通过','未通过']
-
   },
+  
   onLoad: function (options) {
       let that = this;
       app.setTab()
   },
+
   onReady: function () {
       wx.setNavigationBarTitle({
           title: '发现',
       })
   },
+
   onShow: function () {
       let that = this
       wx.showLoading()
@@ -25,7 +27,6 @@ Page({
               id: app.member.id
           },
           success: function (res) {
-
               if (res.data.data) {
                   console.log(res.data.data)
                   that.setData({

@@ -295,7 +295,7 @@
         <view class='selectbox'>
         <view class='select border {{priceSel==index?"active":""}}' wx:for="{{price}}" wx:key="price" id="{{index}}" bindtap='choosePrice'>
                 <view>¥{{item.price}}<text>/{{item.time}} </text></view>
-                <view wx:if="{{item.hot}}" class="hot">最多人办卡</view>
+                <view wx:if="{{item.hot}}" class="hot">最多人选择</view>
             </view>
             <!-- <view class='select border active'>
                 <view>¥600<text>/3个月 </text></view>

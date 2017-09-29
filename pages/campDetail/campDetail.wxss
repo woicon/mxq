@@ -118,6 +118,10 @@ page{
 .selectbox .active{
     background:#03A699;
     color:#fff;
+    border:1px solid #03A699;
+}
+.selectbox .select:after{
+    border:none;
 }
 .selectbox .active:after{
     border:none;

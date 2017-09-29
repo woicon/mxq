@@ -1,7 +1,6 @@
 var app = getApp();
 const base = require('../../utils/util.js')
 Page({
-
     data: {
 
     },
@@ -10,10 +9,10 @@ Page({
         wx.request({
             url: app.host + 'camp/listCampCollection',
             data: {
-                id:6,
+                userId:'6',
             },
             success: function (res) {
-                //console.log(res)
+                console.log(res)
                 if (res.data.data) {
                     // that.setData({
                     //     coupon: res.data.data.coupons

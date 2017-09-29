@@ -14,6 +14,11 @@ Page({
             sexSel:e.target.id
         })
     },
+    applyOk:function(){
+        wx.redirectTo({
+            url: '/pages/home/home',
+        })
+    },
     chooseGrade:function(e){
         console.log(e)
         let that = this

@@ -1,1 +1,259 @@
-/* pages/home/home.wxss */
+.swiper-box{
+    overflow:hidden;
+}
+page{
+    overflow:hidden;
+}
+.tabbar{
+    height:50px;
+}
+.camp-list{
+    margin-bottom:40rpx;
+}
+.camp-list .camp-item:last-child:after{
+    border:none;
+}
+.camp-list .cont{
+    width:100%;
+}
+.camp-list .teacher{
+    font-size:32rpx;
+}
+.camp-list .camp-name{
+    margin-bottom:8rpx;
+}
+.camp-list .star{
+    line-height:50rpx;
+}
+.camp-download .button{
+    margin-top:40rpx;
+}
+
+
+/* //find */
+
+page{
+    padding-bottom:120rpx;
+}
+
+.find-title{
+    font-size:26rpx;
+    color:#191919;
+    font-weight:800;
+    clear:both;
+    margin-top:60rpx;
+}
+
+.viewcont{
+   
+    margin-left:-26rpx;
+    margin:30rpx 0;
+    margin-left:-2%;
+    overflow:hidden;
+}
+
+.viewcont .item{
+    width:31%;
+    float:left;
+    color:#191919;
+    margin-left:2%;
+    font-size:32rpx;
+    position:relative;
+    padding:24rpx;
+    margin-bottom:26rpx;
+    text-align:center;
+    box-sizing:border-box;
+    min-height:130rpx;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    transition:.3s;
+}
+.viewcont .item text{
+    font-size:22rpx;
+    display:block;
+}
+.viewcont .item-hover{
+    background:#fafafa;
+}
+.school-item{
+    min-height:90rpx;
+}
+
+.viewcont .item text,.viewcont .item .title{
+    width:100%;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+}
+
+.viewcont .item:after{
+    content:'';
+    width:200%;
+    height:200%;
+    position:absolute;
+    left:0;
+    right:0;
+    transform-origin:0 0;
+    top:0;
+    bottom:0;
+    transform:scale(.5);
+    border:1px solid #f2f2f2;
+    border-radius:8rpx;
+    font-size:32rpx;
+}
+.searchbar{
+    border-bottom:1px solid #F2F2F2;
+    display:flex;
+    margin:0 50rpx;
+    align-items:center;
+}
+.search-ico{
+    margin:0 20rpx 0 0;
+}
+.search-input{
+    font-size:32rpx;
+    padding:30rpx 0;
+    width:100%;
+}
+.search-city{
+    font-size:32rpx;
+    width:140rpx;
+    position:relative;
+    display:flex;
+    align-items:center;
+    padding:30rpx 0;
+    justify-content:space-between;
+    margin-right:40rpx;
+}
+.search-city:after{
+    content:'';
+    border:1px solid #000;
+    border-left:none;
+    border-top:none;
+    transform:rotate(45deg);
+    width:18rpx;
+    height:18rpx;
+    display:block;
+    margin-top:-8rpx;
+
+}
+.sub-title{
+    padding:40rpx 0;
+    font-size:40rpx;
+    font-weight:800;
+}
+.filtrbar{
+    text-align:center;
+    position:relative;
+}
+.filtrbar:after{
+    content:'';
+    position:absolute;
+    top:20rpx;
+    bottom:20rpx;
+    left:50%;
+    border-left:1px solid #f2f2f2;
+}
+.filtrbar picker{
+    padding:20rpx 0;
+    width:50%;
+    font-size:32rpx;
+    text-align:center;
+    
+}
+
+.filtrbar .picker{
+    position:relative;
+    display:flex;
+    align-items:center;
+    text-align:center;
+    justify-content:center;
+}
+
+.filtrbar .picker:after{
+    content:'';
+    border:1px solid #000;
+    border-left:none;border-top:none;
+    transform:rotate(45deg);
+    width:16rpx;
+    height:16rpx;
+    display:block;
+    margin-top:-8rpx;
+    margin-left:20rpx;
+
+}
+
+
+
+.member-head{
+    display:flex;
+    align-items:center;
+    background:#fff;
+    padding:45rpx 50rpx;
+    margin-bottom:10rpx;
+   
+}
+.name{
+    font-size:36rpx;
+    margin-bottom:10rpx;
+    display:flex;
+    align-items:center;
+   
+}
+.name .ico{
+    display:inline-block;
+    color:#FFDB00;
+     margin-left:4px;
+    font-size:38rpx;
+}
+.name-sub{
+    font-size: 26rpx;
+    color:#4C4C4C;
+}
+.member-img{
+    width:100rpx;
+    height:100rpx;
+     margin-right:30rpx;
+
+}
+.list .item.bborder:after{
+    left:50rpx;
+}
+.list .item{
+    margin:10rpx 0;
+    background:#fff;
+    justify-content:space-between;
+    height:126rpx;
+    padding:0 50rpx;
+    display:flex;
+    align-items:center;
+    font-size:32rpx;
+}
+.list .item label{
+    display:flex;
+    align-items:center;
+
+}
+.list .item .value{
+    font-size:32rpx;
+    color:#4c4c4c;
+}
+.list .item .new{
+    line-height:32rpx;
+    font-size:20rpx;
+    background: #FD5C63;
+    color:#fff;
+    padding:0 12rpx;
+    border-radius:30px;
+}
+.group .item{
+    margin:0;
+    overflow:hidden;
+}
+.list .item image{
+    width:50rpx;
+    height:50rpx;
+    margin-right:20rpx;
+}
