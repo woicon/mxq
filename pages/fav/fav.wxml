@@ -1,5 +1,5 @@
 <include src="../../pages/component/msg.wxml"/>
-<view class='flex camp-item'>
+<view class='flex camp-item {{hides0?"hide":""}}' id='0' bindlongtap='clearFav'>
     <view class='camp-img'>
         <image src="../../pages/images/girl.png"></image>
     </view>
@@ -32,7 +32,7 @@
     </view>
 </view>
 
-<view class='flex camp-item'>
+<view class='flex camp-item {{hides1?"hide":""}}' id='1'  bindlongtap='clearFav'>
     <view class='camp-img'>
         <image src="../../pages/images/boy.png"></image>
     </view>
@@ -61,5 +61,11 @@
             <view>奥数获奖</view>
         </view>
         <view class='camp-info'>平台点评：倡导高效快乐的学习方法，注重自主学习习惯的培养，侠客岛成员</view>
+    </view>
+</view>
+
+<view class='empty {{empty?"show":""}}'>
+    <view class='txt'>
+    您没有收藏的训练营
     </view>
 </view>

@@ -1,0 +1,13 @@
+.empty{
+    display:none;
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:30%;
+    
+    align-items:center;
+    justify-content:center;
+}
+.empty.show{
+   display:flex;
+}

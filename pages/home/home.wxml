@@ -13,9 +13,8 @@
         </view>
 </view>
 
-
-<swiper current="{{activeIndex}}" class="swiper-box"  duration="100" circular="true" style="height:{{winHeight-50}}px" bindchange="tabChange">
-      <swiper-item class="swiper-item">
+<view current="{{activeIndex}}" class="swiper-box"  duration="100" circular="true" style="height:{{winHeight-50}}px" bindchange="tabChange">
+      <view class="swiper-item {{activeIndex==0?'show':''}}">
             <scroll-view scroll-y="true" style="height:100%;">
               <view class='mpage'>
                     <view class='panel-tip'>
@@ -80,9 +79,9 @@
                     <view class='button' hover-class='button-hover'>前往下载</view>
                 </view>
             </scroll-view>
-       </swiper-item>
+       </view>
 
-       <swiper-item class="swiper-item">
+       <view class="swiper-item {{activeIndex==1?'show':''}}">
             <scroll-view scroll-y="true" style="height:100%;">
              <block wx:if="{{!detail}}">
                 <view class='searchbar'>
@@ -218,14 +217,14 @@
                 </navigator>
             </block>
             </scroll-view>
-       </swiper-item>
-       <swiper-item class="swiper-item">
+       </view>
+       <view class="swiper-item {{activeIndex==2?'show':''}}">
             <scroll-view scroll-y="true" style="height:100%;">
               <!-- <view >有奖推荐</view> -->
             </scroll-view>
-       </swiper-item>
+       </view>
 
-       <swiper-item class="swiper-item" style="background:#f6f6f6;">
+       <view class="swiper-item {{activeIndex==3?'show':''}}" style="background:#f6f6f6;">
             <scroll-view scroll-y="true" style="height:100%;">
                 <view class='member-head'>
                     <image class="member-img" src='../../pages/images/boy.png'></image>
@@ -258,6 +257,54 @@
                     </view>
                 </view>
             </scroll-view>
-       </swiper-item>
-</swiper>
-<include src="../../pages/common/tabbar.wxml"/>
+       </view>
+</view>
+
+<view class='welcome {{welcomeStat?"show":""}}'>
+     <swiper indicator-dots="true" indicator-color="rgba(230,230,230,1)" indicator-active-color="#FD5C63">
+         <swiper-item>
+            <view class='page-title'> 
+                欢迎使用名校家长圈
+                <text>首先，让我先来澄清几个关键问题吧</text>
+            </view>
+            <view class='qlist'> 
+                <view class='qlist-title'><text>Q1</text>平台是如何甄选家长导师的？</view>   
+                <view class='qlist-item'>工作人员线下核实家长孩子就读学校和年级</view> 
+                <view class='qlist-item'>工作人员与家长导师就育儿方面作深入面谈</view> 
+                <view class='qlist-item'>工作人员、专家和家长代表一起试听一段</view> 
+                <view class='qlist-item'>给导师评级，突出每位家长导师的特色和优势</view>
+            </view>
+         </swiper-item>
+
+         <swiper-item>
+            <view class='page-title'> 
+                欢迎使用名校家长圈
+                <text>首先，让我先来澄清几个关键问题吧</text>
+            </view>
+            <view class='qlist'> 
+                <view class='qlist-title'><text>Q2</text>平台是如何甄选家长导师的？</view>   
+                <view class='qlist-item'>工作人员线下核实家长孩子就读学校和年级</view> 
+                <view class='qlist-item'>工作人员与家长导师就育儿方面作深入面谈</view> 
+                <view class='qlist-item'>工作人员、专家和家长代表一起试听一段</view> 
+                <view class='qlist-item'>给导师评级，突出每位家长导师的特色和优势</view>
+            </view>
+         </swiper-item>
+
+         <swiper-item>
+            <view class='page-title'> 
+                欢迎使用名校家长圈
+                <text>首先，让我先来澄清几个关键问题吧</text>
+            </view>
+            <view class='qlist'> 
+                <view class='qlist-title'><text>Q3</text>平台是如何甄选家长导师的？</view>   
+                <view class='qlist-item'>工作人员线下核实家长孩子就读学校和年级</view> 
+                <view class='qlist-item'>工作人员与家长导师就育儿方面作深入面谈</view> 
+                <view class='qlist-item'>工作人员、专家和家长代表一起试听一段</view> 
+                <view class='qlist-item'>给导师评级，突出每位家长导师的特色和优势</view>
+            </view>
+            <view class='mpage'>
+                <view class='button' hover="true" hover-class='button-hover' bindtap='iknow'>我知道了</view>
+            </view>
+         </swiper-item>
+    </swiper>
+</view>

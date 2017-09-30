@@ -2,7 +2,29 @@ var app = getApp();
 const base = require('../../utils/util.js')
 Page({
     data: {
-
+        
+    },
+    clearFav:function(e){
+        console.log(e.currentTarget.id)
+        let that = this
+        wx.showModal({
+            title: '提示',
+            content: '是否取消收藏',
+            success: function (res) {
+                if (res.confirm) {
+                    that.setData({
+                        ['hides' + e.currentTarget.id]: true
+                    })
+                    if (that.data.hides0 && that.data.hides1 ){
+                        that.setData({
+                            empty:true
+                        })  
+                    }
+                } else if (res.cancel) {
+                    
+                }
+            }
+        })
     },
     onLoad: function (options) {
         let that = this;
@@ -21,7 +43,7 @@ Page({
                     //     title: '我收藏的训练营(' + res.data.data.coupons.length + ")",
                     // })
                 } else {
-                    base.msg(res.data.message)
+                    // base.msg(res.data.message)
                     wx.setNavigationBarTitle({
                         title: '我收藏的训练营',
                     })
@@ -31,7 +53,9 @@ Page({
     },
 
     onReady: function () {
-
+        wx.setNavigationBarTitle({
+            title: '我收藏的训练营',
+        })
     },
 
     onShow: function () {

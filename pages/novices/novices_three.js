@@ -22,11 +22,15 @@ Page({
         this.setData({
             focus:true
         })
+        wx.showModal({
+            title: '',
+            content: '',
+        })
     },
     subimtInfo: function () {
         let that = this
         wx.reLaunch({
-            url: '/pages/find/find'
+            url: '/pages/home/home'
         })
         // wx.request({
         //     url: app.host + 'user/completeInfo',

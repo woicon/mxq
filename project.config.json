@@ -1,0 +1,91 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true
+	},
+	"compileType": "weapp",
+	"libVersion": "1.5.3",
+	"appid": "wxc5370ad3ec9089b9",
+	"projectname": "%E5%90%8D%E6%A0%A1%E5%9C%88",
+	"condition": {
+		"weapp": {
+			"current": 9,
+			"list": [
+				{
+					"id": 0,
+					"name": "引导",
+					"pathName": "pages/novices/novices",
+					"query": "",
+					"scene": "1011"
+				},
+				{
+					"id": 1,
+					"name": "搜索学校",
+					"pathName": "pages/searchSchool/searchSchool",
+					"query": "",
+					"scene": "1011"
+				},
+				{
+					"id": 2,
+					"name": "发现",
+					"pathName": "pages/find/find",
+					"query": "",
+					"scene": "1011"
+				},
+				{
+					"id": -1,
+					"name": "home",
+					"pathName": "pages/home/home",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "我",
+					"pathName": "pages/member/member",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "coupon",
+					"pathName": "pages/coupon/coupon",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我收藏的",
+					"pathName": "pages/fav/fav",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "详情",
+					"pathName": "pages/campDetail/campDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "home",
+					"pathName": "pages/campDetail/campDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "申请",
+					"pathName": "pages/apply/apply",
+					"query": ""
+				}
+			]
+		},
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		}
+	}
+}

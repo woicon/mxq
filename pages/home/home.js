@@ -8,6 +8,8 @@ Page({
         activeIndex: 0,
         slideOffset: 0,
         tabW: 0,
+        welcomeStat:true,
+        member: { "teacher": 2, "application": 0, "coupon": 0, "auth": 1, "nickname": "wzh志浩", "childGrade": "6", "id": 6, "collection": 0, "childSchool": { "id": 7, "locationId": 1, "fullName": "上海市民办华育中学", "heat": 50, "alias": [{ "id": 7, "alias": "华育中学", "schoolId": 7 }], "location": { "id": 7, "province": null, "city": "上海市", "district": "徐汇区", "six": false } } },
         pageTitle: ['训练营', '发现', '有奖推荐', '我'],
         hotSearch: ['北京三中', '锦江小学', '人大附小', '人大附中', '中关村一小222', '世外附小', '上外附小', '清华附中'],
         tag: [
@@ -103,6 +105,11 @@ Page({
             }
         });
     },
+    iknow:function(){
+        this.setData({
+            welcomeStat:false
+        })
+    },
     onShow: function () {
         let that = this
         wx.showLoading()
@@ -120,6 +127,8 @@ Page({
                 } else {
                     base.msg(res.data.message)
                 }
+                wx.hideLoading()
+            },fail:function(){
                 wx.hideLoading()
             }
         })

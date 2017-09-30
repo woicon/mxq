@@ -1,5 +1,6 @@
 <block wx:if="{{payStat}}">
 <view class="real">
+<view class='img'></view>
 <view class='layer' style="visibility:inherit;">
     <view class='mpage'>
         <view class='panel-tip'>
