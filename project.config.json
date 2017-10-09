@@ -12,7 +12,7 @@
 	"projectname": "%E5%90%8D%E6%A0%A1%E5%9C%88",
 	"condition": {
 		"weapp": {
-			"current": 9,
+			"current": 3,
 			"list": [
 				{
 					"id": 0,
@@ -75,6 +75,12 @@
 					"id": -1,
 					"name": "申请",
 					"pathName": "pages/apply/apply",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "有奖推荐",
+					"pathName": "pages/recommend/recommend",
 					"query": ""
 				}
 			]

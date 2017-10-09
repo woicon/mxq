@@ -559,7 +559,7 @@ page{
     font-size:32rpx;
 }
 
-/* .select:after{
+ .panel .select:after{
     content:'';
     border:3rpx solid #191919;
     border-left:none;
@@ -568,7 +568,7 @@ page{
     height:10px;
     margin-top:-3px;
     transform:rotate(45deg);
-} */
+} 
 
 .select picker{
     padding:27rpx 40rpx;

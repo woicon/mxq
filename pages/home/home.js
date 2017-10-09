@@ -5,10 +5,10 @@ Page({
     data: {
         tabBar: app.tabBar,
         currentTab: 0,
-        activeIndex: 0,
+        activeIndex: 1,
         slideOffset: 0,
         tabW: 0,
-        welcomeStat:true,
+        welcomeStat:false,
         member: { "teacher": 2, "application": 0, "coupon": 0, "auth": 1, "nickname": "wzh志浩", "childGrade": "6", "id": 6, "collection": 0, "childSchool": { "id": 7, "locationId": 1, "fullName": "上海市民办华育中学", "heat": 50, "alias": [{ "id": 7, "alias": "华育中学", "schoolId": 7 }], "location": { "id": 7, "province": null, "city": "上海市", "district": "徐汇区", "six": false } } },
         pageTitle: ['训练营', '发现', '有奖推荐', '我'],
         hotSearch: ['北京三中', '锦江小学', '人大附小', '人大附中', '中关村一小222', '世外附小', '上外附小', '清华附中'],
@@ -43,10 +43,21 @@ Page({
     tabClick: function (e) {
         var that = this
         var idIndex = e.currentTarget.id
+        console.log(idIndex)
         var offsetW = e.currentTarget.offsetLeft
+        let bcolor
+        if(idIndex == 2){
+            bcolor = '#FFF3DB'
+        }else if(idIndex == 3){
+            bcolor = '#f6f6f6'
+        }
+        else{
+            bcolor = '#fff' 
+        }
         this.setData({
             activeIndex: idIndex,
-            slideOffset: offsetW
+            slideOffset: offsetW,
+            bcolor:bcolor
         });
     },
     tabChange: function (e) {
@@ -85,7 +96,23 @@ Page({
     },
 
     onLoad: function (options) {
+        let hotSchool
+        let findData
+        
+        wx.request({
+            url: app.host + '/school/getHot',
+            data: {
+                city: '上海市'
+            },
+            fail: function (res) {
+                console.log(res)
+            },
+            success: function (hotSchool) {
+                console.log(hotSchool)
+            },
+        }) 
 
+       
     },
 
     onReady: function () {
@@ -96,6 +123,30 @@ Page({
         wx.setNavigationBarTitle({
             title: '训练营',
         })
+
+
+        let loadData = new Promise(function (res, rej) {
+            wx.request({
+                url: app.host + 'school/getDiscovery',
+
+                data: {
+                    city: '上海市'
+                },
+                fail: function (findData) {
+                    console.log(res)
+                    res(findData)
+                },
+                success: function (res) {
+                    console.log(res)
+                },
+            })
+        })
+        loadData.then(function (rt) {
+                console.log(rt)
+                
+            })
+
+
         wx.getSystemInfo({
             success: function (res) {
                 that.setData({

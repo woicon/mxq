@@ -31,7 +31,7 @@ Page({
         wx.request({
             url: app.host + 'camp/listCampCollection',
             data: {
-                userId:'6',
+                userId:6,
             },
             success: function (res) {
                 console.log(res)

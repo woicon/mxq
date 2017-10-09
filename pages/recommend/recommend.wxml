@@ -1,2 +1,58 @@
 <include src="../../pages/component/msg.wxml"/>
 <include src="../../pages/component/tabbar.wxml"/>
+
+<view class='banner'>
+    <image mode="widthFix" class='img' src='../../pages/images/banner1.png'></image>
+</view>
+
+<view class='share-content'>
+    <view class="s-head">
+        <view>您已累计获得</view>
+
+        <view class='h-price'> 1250<text class="h-sub">元优惠券</text></view>
+        <view class="h-code">123456ABCDE</view>
+    </view>
+
+    <view class='share-list'>
+        <view class='s-title'>成功邀请好友更新情况</view>
+        <view class='s-item'>
+            <view>
+                <view class="i-title">您已成功邀请好友 1234 注册</view>
+                <view class='i-time'>昨日</view>
+            </view>
+            <view class="i-price">+300<text class="i-sub">元优惠券</text></view>
+        </view>
+
+        <view class='s-item'>
+            <view>
+                <view class="i-title">您已成功邀请好友 1234 注册</view>
+                <view class='i-time'>昨日</view>
+            </view>
+            <view class="i-price">+150<text class="i-sub">元优惠券</text></view>
+        </view>
+
+        <view class='s-item'>
+            <view>
+                <view class="i-title">您已成功邀请好友 1234 注册</view>
+                <view class='i-time'>昨日</view>
+            </view>
+            <view class="i-price">+100<text class="i-sub">元优惠券</text></view>
+        </view>
+
+    </view>
+    <view class="more">展开更多…</view>
+</view>
+
+
+
+
+<view class='s-title'>活动规则</view>
+<view class='s-info'>
+    <view class='items'>1.根据页面上方标明的规则，分享即得到相应的购物卡，可至“我的优惠券”中查看；</view>
+    <view class='items'>2.朋友凭活动中的优惠券，免费领取现金券50元；</view>
+    <view class='items'>1.根据页面上方标明的规则，分享即得到相应的购物卡，可至“我的优惠券”中查看；</view>
+</view>
+
+<button class='share-button' open-type="share">
+立即转发
+</button>

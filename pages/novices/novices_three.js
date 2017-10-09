@@ -22,10 +22,6 @@ Page({
         this.setData({
             focus:true
         })
-        wx.showModal({
-            title: '',
-            content: '',
-        })
     },
     subimtInfo: function () {
         let that = this
