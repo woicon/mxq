@@ -2,7 +2,7 @@ var app = getApp();
 const base = require('../../utils/util.js')
 Page({
     data: {
-        
+       campType:['家长','专项','平台'],
     },
     clearFav:function(e){
         console.log(e.currentTarget.id)
@@ -27,21 +27,20 @@ Page({
         })
     },
     onLoad: function (options) {
-        let that = this;
+        let that = this
+        console.log(options)
         wx.request({
             url: app.host + 'camp/listCampCollection',
             data: {
-                userId:6,
+                userId: 6,
             },
-            success: function (res) {
-                console.log(res)
-                if (res.data.data) {
-                    // that.setData({
-                    //     coupon: res.data.data.coupons
-                    // })
-                    // wx.setNavigationBarTitle({
-                    //     title: '我收藏的训练营(' + res.data.data.coupons.length + ")",
-                    // })
+            success: function (favCamp) {
+                console.log(favCamp)
+                if (favCamp.data.data) {
+                    console.log(favCamp.data.data.collection)
+                    that.setData({
+                        favCamp: favCamp.data.data.collection
+                    })
                 } else {
                     // base.msg(res.data.message)
                     wx.setNavigationBarTitle({

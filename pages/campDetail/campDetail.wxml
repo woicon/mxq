@@ -1,4 +1,5 @@
 <include src="../../pages/component/msg.wxml"/>
+<block wx:if="{{success}}">
 <block wx:if="{{type==0}}">
     <view class='flex camp-item noborder'>
         <view class='camp-img'>
@@ -326,5 +327,12 @@
     </view>
 </view>
 <view class='abs mask {{payStat?"show":"fadeOut"}}' bindtap='hideLayer'></view> 
+</block>
+
+<block wx:else>
+    <view class="empty">
+        <view class='txt'>{{error}}</view>
+    </view>
+</block>
 
 

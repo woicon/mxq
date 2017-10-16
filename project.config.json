@@ -12,7 +12,7 @@
 	"projectname": "%E5%90%8D%E6%A0%A1%E5%9C%88",
 	"condition": {
 		"weapp": {
-			"current": 3,
+			"current": 11,
 			"list": [
 				{
 					"id": 0,
@@ -54,10 +54,11 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 6,
 					"name": "我收藏的",
 					"pathName": "pages/fav/fav",
-					"query": ""
+					"query": "id=6",
+					"scene": "1011"
 				},
 				{
 					"id": -1,
@@ -82,6 +83,13 @@
 					"name": "有奖推荐",
 					"pathName": "pages/recommend/recommend",
 					"query": ""
+				},
+				{
+					"id": 11,
+					"name": "详情",
+					"pathName": "pages/campDetail/campDetail",
+					"query": "id=6",
+					"scene": "1011"
 				}
 			]
 		},

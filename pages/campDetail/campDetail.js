@@ -17,8 +17,9 @@ Page({
                 time: '6月',
                 hot: false,
             }],
+            types: ['名校家长训练营', '专项训练营', '机构直通车'],
             payStat:false,
-            type:2,
+            type:1,
             likeStat:true,
             priceSel:1
     },
@@ -78,21 +79,43 @@ Page({
     onLoad: function (options) {
         console.log(options)
         let that = this
-        that.setData({
-            type: options.id
+
+        wx.request({
+            url: app.host + 'camp/getDetail',
+            data: {
+                campId:1,
+            },
+            success: function (campDetail) {
+                console.log(campDetail)
+                
+                if (campDetail.data.data) {
+                    let types = that.data.types
+                    that.setData({
+                        success: true,
+                        detail: campDetail.data.data
+                    })
+                    wx.setNavigationBarTitle({
+                        title: types[campDetail.data.data.type]
+                    })
+                } else {
+                    base.msg(campDetail.data.message)
+                    that.setData({
+                        success:false,
+                        error: campDetail.data.message
+                    })
+                    wx.setNavigationBarTitle({
+                        title: '训练营详情',
+                    })
+                }
+            }
         })
+
     },
 
     onReady: function () {
-
-        let types = this.data.type
-        let name = ['名校家长训练营', '专项训练营', '机构直通车']
-        wx.setNavigationBarTitle({
-            title: name[types]
-        })
+        
     },
     onShow: function (query) {
-        console.log(query)
     },
     onHide: function (options) {
 
